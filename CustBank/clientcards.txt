@@ -1,6 +1,2 @@
-Erik Wilson
-6011653441986783
-act
-Joe Schmoe
-5575965987658265
-inv
+6011653441986783,Erik Wilson,true
+5575965987658265,Joe Schmoe,false

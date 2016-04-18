@@ -13,7 +13,7 @@ require_once '_configuration.php';
 //htmlmail('erikrw96@gmail.com','Test mail','This is a test.  Only a test');
 $bank = new bank();
 
-$bank->CheckCard("5575965987658265", "Erik Wilson");
+$bank->CheckCard("5575965987658265", "Joe Schmoe");
 
 
 

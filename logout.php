@@ -14,6 +14,7 @@ if(isset($_GET['logout']))
 {
 	session_destroy();
 	unset($_SESSION['user']);
+	unset($_SESSION['items']);
 	unset($_SESSION['employee']);
 	header("Location: index.php");
 }

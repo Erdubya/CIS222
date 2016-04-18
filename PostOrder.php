@@ -59,6 +59,7 @@ if (isset($_SESSION['items'])) {
     var_dump($sql);
     var_dump($qry);
 
+    unset($_SESSION['items']);
     mysqli_close($link);
 }
 

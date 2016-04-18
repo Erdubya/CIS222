@@ -98,7 +98,7 @@ if (is_null($order)) {
         <?php
         ob_start();
         
-        $sql = "SELECT PurchItem.ItemNum, PurchItem.PurchPrice, PurchItem.Quantity, Item.Name FROM PurchItem JOIN Item ON purchitem.ItemNum = item.ItemID WHERE PurchItem.OrderID=$orderID";
+        $sql = "SELECT PurchItem.ItemNum, PurchItem.PurchPrice, PurchItem.Quantity, Item.Name FROM PurchItem JOIN Item ON PurchItem.ItemNum = Item.ItemID WHERE PurchItem.OrderID=$orderID";
         $result = mysqli_query($link, $sql);
 //        var_dump($result);
 

@@ -14,9 +14,23 @@ class bank
         var_dump($number);
         if (bank::MOD10($number)) {
             $myfile = fopen('CustBank/clientcards.txt', 'r') or die("Unable to open file!");
+            $found = false;
             
-            while (!feof($myfile)) {
+            while (!feof($myfile) && !$found) {
+                $test = fgetcsv($myfile);
+                var_dump($test);
                 
+                if ($test[0] == $number) {
+                    if ($test[1] == $name) {
+                        if ($test[2]) {
+                            $found = true;
+                        }
+                    }
+                }
+            }
+            
+            if (!$found) {
+                echo "Not found!";
             }
             
             fclose($myfile);
