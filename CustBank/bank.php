@@ -19,7 +19,6 @@ class bank
                 
             }
             
-            
             fclose($myfile);
         }
     }
