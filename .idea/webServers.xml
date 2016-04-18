@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7d2770dc-97c4-4e87-bc55-7efa19a8e95c" name="CIS222 Server" url="http://192.188.202.2/cis222/Scan_It">
+        <fileTransfer host="192.188.202.2" port="22" rootFolder="/var/www/html/cis222/Scan_It" accessType="SFTP" password="dfe4dfd3dfc6dfc5dfc4" username="Scan_It">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" accurateTimestamps="ALWAYS" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

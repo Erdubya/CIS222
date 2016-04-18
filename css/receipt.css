@@ -1,0 +1,58 @@
+table.receipt {
+    border: 1px solid black;
+    text-align: center;
+    width: 85%;
+    background: #fff;
+}
+table.receipt td.leftSide {
+    margin-right: 10px;
+    width: 10%;
+}
+
+table.receipt td.rightSide {
+    margin-left: 10px;
+    width: 20%;
+}
+
+tbody tr.borders td {
+    border-bottom: 1px solid darkslategray;
+}
+
+td.header {
+    width: 5%;
+}
+
+tr.items div {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div.leftAlign {
+    text-align: left;
+    display: inline;
+    float: left;
+    clear: both;
+}
+
+div.leftAlign p {
+    margin: 0;
+    display: inline;
+}
+
+div.rightAlign {
+    display: inline;
+    text-align: right;
+    float: right;
+    clear: both;
+}
+
+div.rightAlign p {
+    margin: 0;
+    display: inline;
+}
+
+div.headimg {
+    float: right;
+    clear: both;
+    display: inline;
+}

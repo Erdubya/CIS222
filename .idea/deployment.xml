@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="CIS222 Server" showEqualInSync="true">
+    <serverData>
+      <paths name="CIS222 Server">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
+            <excludedPath local="true" path="$PROJECT_DIR$/tcpdf" />
+            <excludedPath path="/tcpdf" />
+            <excludedPath path="/em_phpTest" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="Local Server">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="CIS222" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
