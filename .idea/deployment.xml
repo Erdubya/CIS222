@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="CIS222 Server" showEqualInSync="true">
+  <component name="PublishConfigData" serverName="CIS222 Server" uploadOnCheckin="7d2770dc-97c4-4e87-bc55-7efa19a8e95c" showEqualInSync="true">
     <serverData>
       <paths name="CIS222 Server">
         <serverdata>
@@ -23,5 +23,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="CIS222 Server" />
   </component>
 </project>
