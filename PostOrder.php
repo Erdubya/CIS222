@@ -1,17 +1,27 @@
 <?php
 require_once '_configuration.php';
 include_once '_Functions.php';
+
+//This file mimics an external bank.
+include_once 'CustBank\bank.php';
+
 session_start();
 $link = db_connect();
+$bank = new bank();
 
 if (!$link) {
     echo 'BOO!!! Not conncted!!!';
 }
 
+$sql = "SELECT FName, LName, CCNum FROM Users WHERE UserID=" . $_SESSION['user'];
+$qry = mysqli_query($link, $sql);
+$result = mysqli_fetch_array($qry);
 
+$check = $bank->CheckCard($result['CCNum'], $result['FName'] . " " . $result['LName']);
+var_dump($check);
 
-if (isset($_SESSION['items'])) {
-
+if (isset($_SESSION['items']) && $check) {
+    
     //Create new order
     $createOrder = "INSERT INTO Orders(OrderID, UserID, TotPrice) VALUES (NULL," . $_SESSION['user'] . ", 0)";
     $qry = mysqli_query($link, $createOrder);

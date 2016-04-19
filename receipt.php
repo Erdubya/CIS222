@@ -54,7 +54,7 @@ if (is_null($order)) {
                 <div class="leftAlign">
                     <p><?php echo "\t" . $order['OrderID']?></p><br>
                     <p><?php echo "\t" . $order['Date']?></p><br>
-                    <p><?php echo "\t" . $order['TotPrice']?></p><br>
+                    <p><?php echo "\t$" . $order['TotPrice']?></p><br>
                 </div>
             </td>
             <td class="header">

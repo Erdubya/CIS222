@@ -11,10 +11,10 @@ class bank
      */
     function CheckCard($number, $name)
     {
+        $found = false;
         var_dump($number);
         if (bank::MOD10($number)) {
             $myfile = fopen('CustBank/clientcards.txt', 'r') or die("Unable to open file!");
-            $found = false;
             
             while (!feof($myfile) && !$found) {
                 $test = fgetcsv($myfile);
@@ -35,6 +35,8 @@ class bank
             
             fclose($myfile);
         }
+        
+        return $found;
     }
 
     /**
