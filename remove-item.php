@@ -30,7 +30,7 @@ $userRow = mysqli_fetch_array($res);
 <html lang="en-us">
 <head>
     <meta charset=utf-8"/>
-    <title><?= PAGE_TITLE ?> - Main</title>
+    <title><?= PAGE_TITLE ?> - Remove Item</title>
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
 
@@ -43,12 +43,15 @@ if (isset($_SESSION['employee'])) {
 }
 ?>
 <div id="all" class="center">
-    <div id="tableHolder" class="wrapper">
+    <main class="table">
+        <div id="tableHolder" class="wrapper">
+    
+        </div>
 
-    </div>
-
-    <div class="totals">
-    </div>
+        <div class="totals" id="totals">
+            
+        </div>
+    </main>
 
     <aside class="sidebar"> <!-- customer info/options -->
         <div class="center">
@@ -124,6 +127,10 @@ if (isset($_SESSION['employee'])) {
             var element = document.getElementById("tableHolder");
             element.scrollTop = element.scrollHeight;
         });
+
+        $('#totals').load('GetTotals.php', function () {
+
+        })
     }
 </script>
 

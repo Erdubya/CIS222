@@ -15,7 +15,6 @@ if (isset($_SESSION['employee'])) {
 global $fname, $lname, $addr1, $addr2, $city, $state, $zcode, $email, $phone, $ccnum, $upass;
 function resetFields()
 {
-
     $fname = null;
     $lname = null;
     $addr1 = null;

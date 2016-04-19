@@ -29,5 +29,4 @@ class Item
     public function GetPrice() {
         return $this->price;
     }
-    
 }

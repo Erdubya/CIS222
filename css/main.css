@@ -259,14 +259,16 @@ table.fill tr td input {
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.4);
 }
 
-.rmv-rad {
+.remove-in {
     height: 130%;
-    width: 100%;
+    width: 20%;
     margin: 0;
+    padding: 0;
 }
 
 .radio {
     border-right: solid black 1px;
+    width: 10%;
 }
 
 footer {

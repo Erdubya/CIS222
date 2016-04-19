@@ -16,7 +16,7 @@ if (isset($_GET['remove'])) {
 echo '<table class="items">';
 echo '<thead><tr>';
 if (isset($_GET['remove'])) {
-    echo '<th class="radio">&#x2714;</th>';
+    echo '<th class="radio">&#x267A;</th>';
 }
 echo '<th>Item</th>';
 echo '<th class="midd num">Item Number</th>';
@@ -29,7 +29,10 @@ foreach ($_SESSION['items'] as $key => $item) {
     echo '<tr class="itemRow' . $alternate . '">';
     if (isset($_GET['remove'])) {
         echo '<td class=radio>';
-        echo '<input class="rmv-rad" type="checkbox" name="select" value="' . $key . '"></td>';
+        echo "<form id='removeForm$key' class='removeItem' name='removeItem'>";
+        echo "<input type='checkbox' name='select' value='$key' checked hidden>";
+        echo "<input class='remove-in' type='button' name='submit' value='&#x2717'>";
+        echo "</form></td>";
     }
     echo '<td class="name">';
     echo $item->GetItem();
