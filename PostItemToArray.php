@@ -8,33 +8,6 @@ if (!$link) {
     echo 'BOO!!! Not conncted!!!';
 }
 
-if(isset($_POST['sign-in'])) {
-    $empId = mysqli_real_escape_string($link, $_POST['empId']);
-    $empPswd = mysqli_real_escape_string($link, $_POST['empPswd']);
-
-    $empPswd = trim($empPswd);
-
-    $res = mysqli_query($link, "SELECT UserID, Password, UserLevel FROM Users WHERE UserID='$empId'");
-    if($res) {
-        $row = mysqli_fetch_array($res);
-
-        $count = mysqli_num_rows($res); // if uname/pass correct it returns must be 1 row
-
-        if($count == 1 && $row['Password']==md5($empPswd)) {
-            $_SESSION['employee'] = $row['UserID'];
-            header("Location: ".$_GET["redirect"]);
-        } else {
-            ?>
-            <script>alert('ID / Password Seems Wrong !');</script>
-            <?php
-        }
-    } else {
-        ?>
-        <script>alert('ID / Password Seems Wrong !');</script>
-        <?php
-    }
-}
-
 if (UPCA_Check($_POST['item'])) {
     $strip = substr($_POST['item'], 0, -1);
     $temp = new Item();

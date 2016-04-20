@@ -1,5 +1,5 @@
 <?php
-ob_start('ob_gzhandler');
+ob_start();
 require_once '_configuration.php';
 session_start();
 $link = db_connect();

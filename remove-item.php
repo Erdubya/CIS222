@@ -8,6 +8,11 @@ if (!isset($_SESSION['user'])) {
     header("Location: index.php");
 }
 
+//if (!is_null($_SESSION['last']['item'])) {
+//    $_SESSION['last']['item'] = null;
+//    $_SESSION['last']['remove'] = null;
+//}
+
 if (isset($_SESSION['employee'])) {
     include '_EmpOptions.php';
 }
@@ -57,26 +62,35 @@ if (isset($_SESSION['employee'])) {
         <div class="center">
             <?= SMALL_IMG ?>
         </div>
-        <form class="removal center" method="post" id="remove" onsubmit="" action="PostRemove.php">
-            <table class="removal fill center">
-                <tr>
-                    <td colspan="2"><input type="text" name="item" value="" disabled></td>
-                </tr>
-                <tr>
-                    <td><label for="value">Value:</label></td>
-                    <td><input type="number" id="value" name="value" disabled></td>
-                </tr>
-                <tr>
-                    <td><label for="count">Count:</label> </td>
-                    <td><input type="number" id="count" name="count" disabled></td>
-                </tr>
-            </table>
-        </form>
+<!--        <form class="removal center" method="post" id="remove" action="UndoRemove.php">-->
+<!--            <table class="removal fill center">-->
+<!--                <tr>-->
+<!--                    <td colspan="2"><input type="text" name="item" value="--><?php
+//                        if (!is_null($_SESSION['last']['item'])) {
+//                            echo $_SESSION['last']['item']->GetItem();
+//                        }
+//                        ?><!--" disabled></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><label for="value">Value:</label></td>-->
+<!--                    <td><input type="text" id="value" name="value" value="$--><?php
+//                        if (!is_null($_SESSION['last']['item'])) {
+//                            echo $_SESSION['last']['item']->GetPrice();
+//                        }
+//                        ?><!--" disabled></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td colspan="2">-->
+<!--                        <input type="submit" value="Undo">-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            </table>-->
+<!--        </form>-->
 
         <div id="cust-options" class="center options">
             <div id="option-stack" class="center">
-                <button class="cust-options center" name="order" type="submit" form="remove">Confirm Remove</button>
-                <br>
+<!--                <button class="cust-options center" name="order" type="submit" form="remove">Confirm Remove</button>-->
+<!--                <br>-->
                 <a href="home.php">
                     <button class="cust-options center" name="cancel" type="button">Go Back</button>
                 </a><br>
@@ -98,7 +112,6 @@ if (isset($_SESSION['employee'])) {
 
 </footer>
 
-
 <script src="scripts/jquery.js"></script>
 <script src="scripts/jquery-ui.js"></script>
 <script src="scripts/FuncScripts.js"></script>
@@ -113,13 +126,42 @@ if (isset($_SESSION['employee'])) {
             heightStyle: "fill"
         });
     });
-
-    $(document).ready(function () {
-        refreshTable();
+    
+    $( document ).ready(function () {
+        $('.removeItem').on('submit', function (e) {
+            e.preventDefault();
+            console.log($(this));
+            $.ajax({
+                type: 'post',
+                url: 'RemoveItemFromArray.php',
+                data: $('form').serialize(),
+                success: function () {
+                    refreshTable();
+                    $items.floatThead('reflow');
+                }
+            });
+            alert("Ajax not running")
+        });
     });
 
-    $("input[name=select]:checked").ready(function () {
-        $("input[name=select]:checked");
+    $( document ).ready(function () {
+        $('#remove').on('submit', function (e) {
+            e.preventDefault();
+            console.log($(this));
+            $.ajax({
+                type: 'post',
+                url: 'UndoRemove.php',
+                data: $('form').serialize(),
+                success: function () {
+                    refreshTable();
+                }
+            });
+//            alert("Ajax not running")
+        });
+    });
+    
+    $(document).ready(function () {
+        refreshTable();
     });
 
     function refreshTable() {
@@ -132,6 +174,8 @@ if (isset($_SESSION['employee'])) {
 
         })
     }
+
+    
 </script>
 
 </body>

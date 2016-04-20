@@ -11,7 +11,7 @@ if (!$link) {
 
 $alternate = 0;
 if (isset($_GET['remove'])) {
-    echo '<form class="remove-select">';
+//    echo '<form class="remove-select">';
 }
 echo '<table class="items">';
 echo '<thead><tr>';
@@ -29,9 +29,9 @@ foreach ($_SESSION['items'] as $key => $item) {
     echo '<tr class="itemRow' . $alternate . '">';
     if (isset($_GET['remove'])) {
         echo '<td class=radio>';
-        echo "<form id='removeForm$key' class='removeItem' name='removeItem'>";
-        echo "<input type='checkbox' name='select' value='$key' checked hidden>";
-        echo "<input class='remove-in' type='button' name='submit' value='&#x2717'>";
+        echo "<form class='removeItem' method=\"post\" action=\"RemoveItemFromArray.php\">";
+        echo "<input type='hidden' name='remItem' value='$key'>";
+        echo "<input class='remove-in' type='submit' value='&#x2717'>";
         echo "</form></td>";
     }
     echo '<td class="name">';
@@ -45,7 +45,7 @@ foreach ($_SESSION['items'] as $key => $item) {
 }
 echo '</tbody></table>';
 if (isset($_GET['remove']))
-    echo '</form>';
+//    echo '</form>';
 
 ob_end_flush();
 
