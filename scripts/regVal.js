@@ -53,6 +53,23 @@ function formValidate() {
 		valid = false;
 	}
 
+	if (valid) {
+		var y;
+		x = document.getElementById('email').value;
+		y = document.getElementById('emailconf').value;
+		if (x != y) {
+			validationMessage = validationMessage + "Emails do not match!\n";
+			valid = false;
+		}
+
+		x = document.getElementById('pass').value;
+		y = document.getElementById('passconf').value;
+		if (x != y) {
+			validationMessage = validationMessage + "Passwords do not match!\n";
+			valid = false;
+		}
+	}
+
 	if(!valid) {
 		window.alert(validationMessage);
 	}
