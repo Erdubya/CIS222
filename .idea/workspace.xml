@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6afa15a1-220f-422c-9ba1-293c5f135fb5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PostEditMember.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CustBank/bank.php" afterPath="$PROJECT_DIR$/CustBank/bank.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CustBank/clientcards.txt" afterPath="$PROJECT_DIR$/CustBank/clientcards.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PostOrder.php" afterPath="$PROJECT_DIR$/PostOrder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edit-account.php" afterPath="$PROJECT_DIR$/edit-account.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home.php" afterPath="$PROJECT_DIR$/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/register.php" afterPath="$PROJECT_DIR$/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/regVal.js" afterPath="$PROJECT_DIR$/scripts/regVal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PostEditMember.php" afterPath="$PROJECT_DIR$/PostEditMember.php" />
     </list>
     <ignored path="CIS222.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,16 +59,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="clientcards.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CustBank/clientcards.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="edit-account.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/edit-account.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -139,21 +120,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostEditMember.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PostEditMember.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PostEditMember.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
+            <state relative-caret-position="912">
+              <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
               <folding>
                 <element signature="e#6#61#0#PHP" expanded="false" />
-                <marker date="1461210582209" expanded="true" signature="178:197" placeholder="SELECT * fro... Users" />
-                <marker date="1461210582209" expanded="true" signature="178:211" placeholder="SELECT * FRO... Users" />
-                <marker date="1461210582209" expanded="true" signature="1137:1153" placeholder="UPDATE Users... " />
-                <marker date="1461210582209" expanded="true" signature="1137:1154" placeholder="UPDATE Users... " />
-                <marker date="1461210582209" expanded="true" signature="1137:1155" placeholder="UPDATE Users... " />
-                <marker date="1461210582209" expanded="true" signature="1137:1159" placeholder="UPDATE Users... " />
-                <marker date="1461210582209" expanded="true" signature="1137:1180" placeholder="UPDATE Users... " />
-                <marker date="1461210582209" expanded="true" signature="1778:1965" placeholder="INSERT INTO Users... " />
+                <marker date="1461211165332" expanded="true" signature="210:236" placeholder="SELECT * fro... Users" />
+                <marker date="1461211165332" expanded="true" signature="210:250" placeholder="SELECT * FRO... Users" />
+                <marker date="1461211165332" expanded="true" signature="1369:1385" placeholder="UPDATE Users... " />
+                <marker date="1461211165332" expanded="true" signature="1369:1386" placeholder="UPDATE Users... " />
+                <marker date="1461211165332" expanded="true" signature="1369:1387" placeholder="UPDATE Users... " />
+                <marker date="1461211165332" expanded="true" signature="1369:1391" placeholder="UPDATE Users... " />
+                <marker date="1461211165332" expanded="true" signature="1369:1412" placeholder="UPDATE Users... " />
               </folding>
             </state>
           </provider>
@@ -162,8 +142,8 @@
       <file leaf-file-name="PostNewMember.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PostNewMember.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+            <state relative-caret-position="494">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
               <folding>
                 <marker date="1459963520312" expanded="true" signature="1559:1746" placeholder="INSERT INTO Users... " />
               </folding>
@@ -241,8 +221,8 @@
         <option value="$PROJECT_DIR$/edit-account.php" />
         <option value="$PROJECT_DIR$/scripts/regVal.js" />
         <option value="$PROJECT_DIR$/PostNewMember.php" />
-        <option value="$PROJECT_DIR$/PostEditMember.php" />
         <option value="$PROJECT_DIR$/CustBank/clientcards.txt" />
+        <option value="$PROJECT_DIR$/PostEditMember.php" />
       </list>
     </option>
   </component>
@@ -439,7 +419,7 @@
       <workItem from="1461028025325" duration="5390000" />
       <workItem from="1461103961861" duration="12695000" />
       <workItem from="1461173320240" duration="9457000" />
-      <workItem from="1461207808339" duration="2915000" />
+      <workItem from="1461207808339" duration="3419000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1461008651661</created>
@@ -483,11 +463,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461121272110</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Working Edit Account">
+      <created>1461210737910</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1461210737910</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134361000" />
+    <option name="totallyTimeSpent" value="134865000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -505,18 +492,18 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16257995" sideWeight="0.39029768" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5042644" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13965885" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1719956" sideWeight="0.49573562" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16257995" sideWeight="0.6097023" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17290749" sideWeight="0.49573562" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3263506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -564,7 +551,8 @@
     <MESSAGE value="v 0.2.0.1" />
     <MESSAGE value="v 0.2.0.2" />
     <MESSAGE value="Working Removal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working Removal" />
+    <MESSAGE value="Working Edit Account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working Edit Account" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -889,21 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit-account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="125" column="66" selection-start-line="125" selection-start-column="66" selection-end-line="125" selection-end-column="66" />
-          <folding>
-            <element signature="e#82#151#0#PHP" expanded="false" />
-            <element signature="e#291#1022#0#PHP" expanded="false" />
-            <element signature="e#349#1022#0#PHP" expanded="false" />
-            <marker date="1461183404332" expanded="true" signature="161:194" placeholder="SELECT * FRO... Users" />
-            <marker date="1461183404332" expanded="true" signature="1068:1087" placeholder="..." />
-            <marker date="1461183404332" expanded="true" signature="1262:1280" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/regVal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1748">
@@ -927,10 +900,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CustBank/clientcards.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit-account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1160">
+          <caret line="125" column="66" selection-start-line="125" selection-start-column="66" selection-end-line="125" selection-end-column="66" />
+          <folding>
+            <element signature="e#82#151#0#PHP" expanded="false" />
+            <element signature="e#291#1022#0#PHP" expanded="false" />
+            <element signature="e#349#1022#0#PHP" expanded="false" />
+            <marker date="1461183404332" expanded="true" signature="161:194" placeholder="SELECT * FRO... Users" />
+            <marker date="1461183404332" expanded="true" signature="1068:1087" placeholder="..." />
+            <marker date="1461183404332" expanded="true" signature="1262:1280" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PostNewMember.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        <state relative-caret-position="494">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
           <folding>
             <marker date="1459963520312" expanded="true" signature="1559:1746" placeholder="INSERT INTO Users... " />
           </folding>
@@ -939,27 +935,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PostEditMember.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
+        <state relative-caret-position="912">
+          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
           <folding>
             <element signature="e#6#61#0#PHP" expanded="false" />
-            <marker date="1461210582209" expanded="true" signature="178:197" placeholder="SELECT * fro... Users" />
-            <marker date="1461210582209" expanded="true" signature="178:211" placeholder="SELECT * FRO... Users" />
-            <marker date="1461210582209" expanded="true" signature="1137:1153" placeholder="UPDATE Users... " />
-            <marker date="1461210582209" expanded="true" signature="1137:1154" placeholder="UPDATE Users... " />
-            <marker date="1461210582209" expanded="true" signature="1137:1155" placeholder="UPDATE Users... " />
-            <marker date="1461210582209" expanded="true" signature="1137:1159" placeholder="UPDATE Users... " />
-            <marker date="1461210582209" expanded="true" signature="1137:1180" placeholder="UPDATE Users... " />
-            <marker date="1461210582209" expanded="true" signature="1778:1965" placeholder="INSERT INTO Users... " />
+            <marker date="1461211165332" expanded="true" signature="210:236" placeholder="SELECT * fro... Users" />
+            <marker date="1461211165332" expanded="true" signature="210:250" placeholder="SELECT * FRO... Users" />
+            <marker date="1461211165332" expanded="true" signature="1369:1385" placeholder="UPDATE Users... " />
+            <marker date="1461211165332" expanded="true" signature="1369:1386" placeholder="UPDATE Users... " />
+            <marker date="1461211165332" expanded="true" signature="1369:1387" placeholder="UPDATE Users... " />
+            <marker date="1461211165332" expanded="true" signature="1369:1391" placeholder="UPDATE Users... " />
+            <marker date="1461211165332" expanded="true" signature="1369:1412" placeholder="UPDATE Users... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustBank/clientcards.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
