@@ -55,22 +55,20 @@ if (isset($_SESSION['employee'])) {
     <main>
         <div id="tabs" class="center">
             <ul style="margin-top: auto; margin-bottom: auto;">
-                <li><a href="#tabs-1">Account</a></li>
-                <li><a href="#tabs-2">Address</a></li>
-                <li><a href="#tabs-3">Payment</a></li>
-                <li><a href="#tabs-4">Sign Up</a></li>
+                <li class="clearImage"><a href="#tabs-1">Account</a></li>
+                <li class="clearImage"><a href="#tabs-2">Address</a></li>
+                <li class="clearImage"><a href="#tabs-3">Payment</a></li>
+                <li class="clearImage"><a href="#tabs-4">Sign Up</a></li>
             </ul>
             <form method="post" class="tabbed" id="reg-sub" onsubmit="return formValidate()" action="PostNewMember.php">
                 <div id="tabs-1" class="tabbs">
                     <div id="reg-form-1" class="reg-form">
                         <table class="fill" align="center" border="0">
                             <tr>
-                                <td><input type="email" name="email" id="email" placeholder="Your Email"
-                                           value="<?= htmlspecialchars($email) ?>"/></td>
+                                <td><input type="email" name="email" id="email" placeholder="Your Email" value="<?= htmlspecialchars($email) ?>"/></td>
                             </tr>
                             <tr>
-                                <td><input type="email" name="emailconf" id="emailconf" placeholder="Confirm Email"
-                                           value="<?= htmlspecialchars($email) ?>"/></td>
+                                <td><input type="email" name="emailconf" id="emailconf" placeholder="Confirm Email" value="<?= htmlspecialchars($email) ?>"/></td>
                             </tr>
                         </table>
                         <table class="fill" align="center" border="0" id="passwords">

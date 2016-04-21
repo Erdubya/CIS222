@@ -59,3 +59,37 @@ function formValidate() {
 
 	return valid;
 }
+
+function updateValid() {
+	var valid = true;
+	var y;
+	var x = document.getElementById('oldPass').value;
+	var validationMessage;
+	
+	if(x == null || x == ""){
+		validationMessage = "Enter current password!";
+		valid = false;
+	}
+	
+	if (valid) {
+		x = document.getElementById('email').value;
+		y = document.getElementById('emailconf').value;
+		if (x != y) {
+			validationMessage = "Emails do not match!\n";
+			valid = false;
+		}
+		
+		x = document.getElementById('pass').value;
+		y = document.getElementById('passconf').value;
+		if (x != y) {
+			validationMessage = validationMessage + "Passwords do not match!\n";
+			valid = false;
+		}
+	}
+	
+	if (!valid) {
+		window.alert(validationMessage);
+	}
+	
+	return valid;
+}

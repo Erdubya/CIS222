@@ -96,7 +96,7 @@ $userRow = mysqli_fetch_array($res);
                 <button class="cust-options center" name="remove" type="button">Remove Item</button>
             </a><br>
             <a href="edit-account.php">
-                <button class="cust-options center" name="change" type="button" disabled>Change Account Information
+                <button class="cust-options center" name="change" type="button">Change Account Information
                 </button>
             </a><br>
             <a href="logout.php?logout">

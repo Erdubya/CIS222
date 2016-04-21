@@ -63,6 +63,22 @@ div.reg-form table {
     width: 700px;
 }
 
+div.editSub {
+    margin-top: 20px;
+}
+
+div.editSub input {
+    width: 20%;
+    height: 45px;
+    border: solid #e1e1e1 1px;
+    border-radius: 3px;
+    padding-left: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    background: #d4d4d4;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
 p.row {
     display: block;
     width: 70%;
@@ -204,6 +220,7 @@ div#tabs {
 
 /*Dialogs*/
 #dialog-link {
+    background-image: none;
     position: absolute;
     float: right;
     margin: 0 20% 20px 0;
@@ -390,6 +407,10 @@ footer#register {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+.clearImage {
+    background-image: none !important;
 }
 
 .hide {

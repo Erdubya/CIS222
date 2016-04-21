@@ -50,7 +50,7 @@ class bank
      * @param $number int The card number to test.
      * @return bool The validity of the number.
      */
-    private function MOD10($number)
+    public function MOD10($number)
     {
         if (is_numeric($number)) {
             $length = strlen($number);

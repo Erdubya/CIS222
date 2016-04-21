@@ -3,7 +3,7 @@ require_once '_configuration.php';
 include_once '_Functions.php';
 
 //This file mimics an external bank.
-include_once 'CustBank\bank.php';
+include_once 'CustBank/bank.php';
 
 session_start();
 $link = db_connect();
@@ -21,7 +21,6 @@ $check = $bank->CheckCard($result['CCNum'], $result['FName'] . " " . $result['LN
 var_dump($check);
 
 if (isset($_SESSION['items']) && $check) {
-    
     //Create new order
     $createOrder = "INSERT INTO Orders(OrderID, UserID, TotPrice) VALUES (NULL," . $_SESSION['user'] . ", 0)";
     $qry = mysqli_query($link, $createOrder);
