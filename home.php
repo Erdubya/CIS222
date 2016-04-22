@@ -9,11 +9,11 @@ if (!isset($_SESSION['user'])) {
     header("Location: index.php");
 }
 
-if (isset($_SESSION['employee'])) {
-    echo '<div>';
-    include '_EmpOptions.php';
-    echo '</div>';
-}
+ob_start();
+echo '<div>';
+include '_EmpOptions.php';
+echo '</div>';
+$options = ob_get_clean();
 
 if (!isset($_SESSION['items']))
     $_SESSION['items'] = array();
@@ -124,7 +124,11 @@ $userRow = mysqli_fetch_array($res);
     </div>
 
     <footer>
-
+        <?php
+        if (isset($_SESSION['employee'])) {
+            echo $options;
+        }
+        ?>
     </footer>
 </div>
 

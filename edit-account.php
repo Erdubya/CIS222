@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 require_once '_configuration.php';
 session_start();
 $link = db_connect();
@@ -7,6 +7,12 @@ $link = db_connect();
 if (!isset($_SESSION['user'])) {
     header("Location: index.php");
 }
+
+ob_start();
+echo '<div>';
+include '_EmpOptions.php';
+echo '</div>';
+$options = ob_get_clean();
 
 $sql = "SELECT * FROM Users WHERE UserID=" . $_SESSION['user'];
 $result = mysqli_query($link, $sql);
@@ -51,11 +57,6 @@ if (is_null($row)) {
 </head>
 
 <body>
-<?php
-if (isset($_SESSION['employee'])) {
-    include '_EmpOptions.php';
-}
-?>
 <div id="all" class="center">
     <header class="center">
         <a href="index.php" id="headerimg"><?= MAIN_IMAGE ?></a>
@@ -138,6 +139,12 @@ if (isset($_SESSION['employee'])) {
     </main>
 
     <footer class="center">
+        <?php
+        if (isset($_SESSION['employee'])) {
+            echo $options;
+        }
+        ?>
+        
         <div class="center" id="button-left">
             <a class="center" href="home.php">Back</a>
         </div>
@@ -183,3 +190,6 @@ if (isset($_SESSION['employee'])) {
 </script>
 </body>
 </html>
+
+<?php
+ob_end_flush();

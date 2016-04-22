@@ -1,5 +1,5 @@
 <?php
-//ob_start();
+ob_start();
 
 ?>
 <!--Dialog popup for options-->
@@ -24,12 +24,7 @@
         <a href="emp-logout.php?logout&redirect=<?php echo $red ?>">
             <button class="emp-options center" name="cancel" type="button">Logout</button>
         </a><br>
-        <button class="emp-options center" id="help-button" name="help" type="button">Request Assistance</button>
-
-        <!-- ui-dialog -->
-        <dialog id="dialog" title="Help Is On The Way!">
-            <p class="center">An Employee will be with you shortly.</p>
-        </dialog>
+        <button class="emp-options center" id="emp-help-button" name="help" type="button">Request Assistance</button>
     </div>
 </dialog>
 
@@ -38,5 +33,5 @@
     <span>LOGGED ON</span>
 </div>
 <?php
-//ob_end_flush();
+ob_end_flush();
 ?>

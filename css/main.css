@@ -48,8 +48,8 @@ form.tabbed {
     height: 355px;
 }
 
-form.removal {
-
+form.removeItem {
+    margin-bottom: 0;
 }
 
 div.reg-form {

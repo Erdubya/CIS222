@@ -54,6 +54,7 @@ $("#bconfirm").dialog({
     width: 275,
     height: 475,
     position: {my: "left", at: "left top"}
+    
 });
 
 // Link to open help dialog (round)
@@ -64,6 +65,12 @@ $("#dialog-link").click(function (event) {
 
 // Link to open help dialog (rectangle)
 $("#help-button").click(function (event) {
+    $("#dialog").dialog("open");
+    event.preventDefault();
+});
+
+// Link to open help dialog (employee)
+$("#emp-help-button").click(function (event) {
     $("#dialog").dialog("open");
     event.preventDefault();
 });

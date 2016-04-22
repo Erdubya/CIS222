@@ -8,9 +8,11 @@ if (isset($_SESSION['user']) != "") {
     header("Location: home.php");
 }
 
-if (isset($_SESSION['employee'])) {
-    include '_EmpOptions.php';
-}
+ob_start();
+echo '<div>';
+include '_EmpOptions.php';
+echo '</div>';
+$options = ob_get_clean();
 
 if (isset($_POST['sign-in'])) {
     $email = mysqli_real_escape_string($link, $_POST['email']);
@@ -82,6 +84,12 @@ if (isset($_POST['sign-in'])) {
     </main>
 
     <footer class="center">
+        <?php
+        if (isset($_SESSION['employee'])) {
+            echo $options;
+        }
+        ?>
+        
         <div class="center" id="button-left">
             <a class="center" href="register.php">Sign Up Here!</a>
         </div>

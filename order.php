@@ -8,9 +8,11 @@ if (!isset($_SESSION['user'])) {
     header("Location: index.php");
 }
 
-if (isset($_SESSION['employee'])) {
-    include '_EmpOptions.php';
-}
+ob_start();
+echo '<div>';
+include '_EmpOptions.php';
+echo '</div>';
+$options = ob_get_clean();
 
 if (!isset($_SESSION['items'])) {
     ?>
@@ -37,11 +39,6 @@ $userRow = mysqli_fetch_array($res);
 </head>
 
 <body>
-<?php
-if (isset($_SESSION['employee'])) {
-    include '_EmpOptions.php';
-}
-?>
 <div id="all" class="center">
     <main class="table">
         <div id="tableHolder" class="wrapper">
@@ -76,12 +73,15 @@ if (isset($_SESSION['employee'])) {
             </dialog>
         </div>
     </aside>
-
+    
+    <footer>
+        <?php
+        if (isset($_SESSION['employee'])) {
+            echo $options;
+        }
+        ?>
+    </footer>
 </div>
-
-<footer>
-
-</footer>
 
 
 <script src="scripts/jquery.js"></script>

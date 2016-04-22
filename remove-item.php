@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once '_configuration.php';
 session_start();
 $link = db_connect();
@@ -13,9 +14,11 @@ if (!isset($_SESSION['user'])) {
 //    $_SESSION['last']['remove'] = null;
 //}
 
-if (isset($_SESSION['employee'])) {
-    include '_EmpOptions.php';
-}
+ob_start();
+echo '<div>';
+include '_EmpOptions.php';
+echo '</div>';
+$options = ob_get_clean();
 
 if (!isset($_SESSION['items'])) {
     ?>
@@ -42,11 +45,6 @@ $userRow = mysqli_fetch_array($res);
 </head>
 
 <body>
-<?php
-if (isset($_SESSION['employee'])) {
-    include '_EmpOptions.php';
-}
-?>
 <div id="all" class="center">
     <main class="table">
         <div id="tableHolder" class="wrapper">
@@ -60,45 +58,17 @@ if (isset($_SESSION['employee'])) {
 
     <aside class="sidebar"> <!-- customer info/options -->
         <div class="center">
-            <?= SMALL_IMG ?>
+            <?= SMALL_IMG ?><br>
         </div>
-<!--        <form class="removal center" method="post" id="remove" action="UndoRemove.php">-->
-<!--            <table class="removal fill center">-->
-<!--                <tr>-->
-<!--                    <td colspan="2"><input type="text" name="item" value="--><?php
-//                        if (!is_null($_SESSION['last']['item'])) {
-//                            echo $_SESSION['last']['item']->GetItem();
-//                        }
-//                        ?><!--" disabled></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td><label for="value">Value:</label></td>-->
-<!--                    <td><input type="text" id="value" name="value" value="$--><?php
-//                        if (!is_null($_SESSION['last']['item'])) {
-//                            echo $_SESSION['last']['item']->GetPrice();
-//                        }
-//                        ?><!--" disabled></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td colspan="2">-->
-<!--                        <input type="submit" value="Undo">-->
-<!--                    </td>-->
-<!--                </tr>-->
-<!--            </table>-->
-<!--        </form>-->
 
         <div id="cust-options" class="center options">
-            <div id="option-stack" class="center">
-<!--                <button class="cust-options center" name="order" type="submit" form="remove">Confirm Remove</button>-->
-<!--                <br>-->
-                <a href="home.php">
-                    <button class="cust-options center" name="cancel" type="button">Go Back</button>
-                </a><br>
-                <a href="#">
-                    <button class="cust-options center" id="help-button" name="help" type="button">Request Assistance
-                    </button>
-                </a>
-            </div>
+            <a href="home.php">
+                <button class="cust-options center" name="cancel" type="button">Go Back</button>
+            </a><br>
+            <a href="#">
+                <button class="cust-options center" id="help-button" name="help" type="button">Request Assistance
+                </button>
+            </a>
             <!-- ui-dialog -->
             <dialog id="dialog" title="Help Is On The Way!">
                 <p class="center">An Employee will be with you shortly.</p>
@@ -106,11 +76,15 @@ if (isset($_SESSION['employee'])) {
         </div>
     </aside>
 
+
+    <footer>
+        <?php
+        if (isset($_SESSION['employee'])) {
+            echo $options;
+        }
+        ?>
+    </footer>
 </div>
-
-<footer>
-
-</footer>
 
 <script src="scripts/jquery.js"></script>
 <script src="scripts/jquery-ui.js"></script>
@@ -174,9 +148,10 @@ if (isset($_SESSION['employee'])) {
 
         })
     }
-
-    
 </script>
 
 </body>
 </html>
+<?php
+ob_end_flush();
+?>

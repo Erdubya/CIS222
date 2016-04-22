@@ -13,9 +13,6 @@ if (!$link) {
 }
 
 $alternate = 0;
-if (isset($_GET['remove'])) {
-    echo '<form class="remove-select">';
-}
 
 echo '<table class="items">';
 echo '<thead><tr>';
@@ -55,9 +52,6 @@ foreach ($_SESSION['items'] as $key => $item) {
     echo '</tr>';
 }
 echo '</tbody></table>';
-
-if (isset($_GET['remove']))
-    echo '</form>';
 
 ob_end_flush();
 

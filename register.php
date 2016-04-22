@@ -8,9 +8,11 @@ if (isset($_SESSION['user']) != "") {
     header("Location: home.php");
 }
 
-if (isset($_SESSION['employee'])) {
-    include '_EmpOptions.php';
-}
+ob_start();
+echo '<div>';
+include '_EmpOptions.php';
+echo '</div>';
+$options = ob_get_clean();
 
 global $fname, $lname, $addr1, $addr2, $city, $state, $zcode, $email, $phone, $ccnum, $upass;
 function resetFields()
@@ -42,11 +44,6 @@ resetFields();
 </head>
 
 <body>
-<?php
-if (isset($_SESSION['employee'])) {
-    include '_EmpOptions.php';
-}
-?>
 <div id="all" class="center">
     <header id="lower">
         <a href="index.php" id="headerimg"><?= MAIN_IMAGE ?></a>
@@ -155,6 +152,12 @@ if (isset($_SESSION['employee'])) {
     </main>
 
     <footer class="center">
+        <?php
+        if (isset($_SESSION['employee'])) {
+            echo $options;
+        }
+        ?>
+        
         <div class="center" id="button-left">
             <a class="center" href="index.php">Log In!</a>
         </div>
