@@ -6,8 +6,10 @@
  */
 
 /**
- * @param $number int
- * @return bool 
+ * Description:
+ *   Calculates the check value of the input barcode. Returns the result of this check.
+ * @param $number int The code to check
+ * @return bool If the code is correct
  */
 function UPCA_Check($number)
 {

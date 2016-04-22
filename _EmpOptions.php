@@ -1,7 +1,8 @@
 <?php
-ob_start();
+//ob_start();
 
 ?>
+<!--Dialog popup for options-->
 <dialog id='emp-options' title="Employee Options">
     <?php
     $red = basename($_SERVER['PHP_SELF']);
@@ -32,9 +33,10 @@ ob_start();
     </div>
 </dialog>
 
+<!--Splash text to note login; link to open options-->
 <div id="emp-footer" class="center unselectable">
     <span>LOGGED ON</span>
 </div>
 <?php
-ob_end_flush();
+//ob_end_flush();
 ?>

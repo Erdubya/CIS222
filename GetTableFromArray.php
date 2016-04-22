@@ -1,6 +1,9 @@
 <?php
 ob_start();
 require_once '_configuration.php';
+/*
+ * This file will generate a table based off an array of Items.
+ */
 
 session_start();
 $link = db_connect();
@@ -11,22 +14,28 @@ if (!$link) {
 
 $alternate = 0;
 if (isset($_GET['remove'])) {
-//    echo '<form class="remove-select">';
+    echo '<form class="remove-select">';
 }
+
 echo '<table class="items">';
 echo '<thead><tr>';
+
 if (isset($_GET['remove'])) {
     echo '<th class="radio">&#x267A;</th>';
 }
+
 echo '<th>Item</th>';
 echo '<th class="midd num">Item Number</th>';
 echo '<th class="price">Price</th>';
 echo '</tr></thead><tbody>';
 foreach ($_SESSION['items'] as $key => $item) {
+    //Set row color
     $alternate++;
     if ($alternate == 3)
         $alternate = 1;
     echo '<tr class="itemRow' . $alternate . '">';
+    
+    //Column for removal
     if (isset($_GET['remove'])) {
         echo '<td class=radio>';
         echo "<form class='removeItem' method=\"post\" action=\"RemoveItemFromArray.php\">";
@@ -34,6 +43,8 @@ foreach ($_SESSION['items'] as $key => $item) {
         echo "<input class='remove-in' type='submit' value='&#x2717'>";
         echo "</form></td>";
     }
+    
+    //Standard table
     echo '<td class="name">';
     echo $item->GetItem();
     echo '</td><td class="midd num">';
@@ -44,8 +55,9 @@ foreach ($_SESSION['items'] as $key => $item) {
     echo '</tr>';
 }
 echo '</tbody></table>';
+
 if (isset($_GET['remove']))
-//    echo '</form>';
+    echo '</form>';
 
 ob_end_flush();
 

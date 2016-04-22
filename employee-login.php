@@ -10,12 +10,14 @@ if(isset($_POST['sign-in'])) {
 
 	$empPswd = trim($empPswd);
 	
+	//Get required information
 	$res = mysqli_query($link, "SELECT UserID, Password, UserLevel FROM Users WHERE UserID='$empId'");
 	if($res) {
 		$row = mysqli_fetch_array($res);
 	
-		$count = mysqli_num_rows($res); // if uname/pass correct it returns must be 1 row
-	
+		$count = mysqli_num_rows($res); // if uname/pass correct it must be 1 row
+		
+		//Confirms user is an employee and that password is correct
 		if($count == 1 && $row['Password']==md5($empPswd) && $row['UserLevel'] > 0) {
 			$_SESSION['employee'] = $row['UserID'];
 			header("Location: ".$_GET["redirect"]);

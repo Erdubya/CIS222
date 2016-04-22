@@ -1,7 +1,9 @@
 <?php
 ob_start();
 require_once '_configuration.php';
-
+/*
+ * Generates a short disabled form to display the running total of the Item array
+ */
 session_start();
 $link = db_connect();
 

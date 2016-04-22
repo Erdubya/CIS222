@@ -7,7 +7,7 @@ include_once 'CustBank/bank.php';
 
 session_start();
 $link = db_connect();
-$bank = new bank();
+$bank = new Bank();
 
 if (!$link) {
     echo 'BOO!!! Not conncted!!!';

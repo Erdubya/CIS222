@@ -1,3 +1,4 @@
+//Validation for Create Account form
 function formValidate() {
 	var valid = true;
 	var validationMessage = "Please correct the errors:\n";
@@ -53,6 +54,7 @@ function formValidate() {
 		valid = false;
 	}
 
+	//Checks for correct input of confirm fields
 	if (valid) {
 		var y;
 		x = document.getElementById('email').value;
@@ -77,6 +79,7 @@ function formValidate() {
 	return valid;
 }
 
+//Validation for Edit Account form
 function updateValid() {
 	var valid = true;
 	var y;
@@ -87,7 +90,8 @@ function updateValid() {
 		validationMessage = "Enter current password!";
 		valid = false;
 	}
-	
+
+	//Checks for correct input of confirm fields
 	if (valid) {
 		x = document.getElementById('email').value;
 		y = document.getElementById('emailconf').value;

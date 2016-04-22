@@ -11,7 +11,7 @@ require_once '_configuration.php';
 //$link = db_connect();
 
 //htmlmail('erikrw96@gmail.com','Test mail','This is a test.  Only a test');
-$bank = new bank();
+$bank = new Bank();
 
 $bank->CheckCard("5575965987658265", "Joe Schmoe");
 

@@ -1,6 +1,10 @@
 <?php
 
-class bank
+/**
+ * This class represents an external credit card processing agency. The card number and name fo the user are passed in, 
+ *  and the validity of the card is returned
+ */
+class Bank
 {
     /**
      * Description:
@@ -8,12 +12,13 @@ class bank
      *   Uses data stored in a file to determine if an account can be used.
      * @param $number int The card number to check
      * @param $name String The name associated with the account
+     * @return boolean Whether or not the number is valid and matches stored information
      */
     function CheckCard($number, $name)
     {
         $found = false;
         var_dump($number);
-        if (bank::MOD10($number)) {
+        if (Bank::MOD10($number)) {
             $myfile = fopen('CustBank/clientcards.txt', 'r') or die("Unable to open file!");
             
             while (!feof($myfile) && !$found) {

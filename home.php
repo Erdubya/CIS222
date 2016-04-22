@@ -66,6 +66,7 @@ $userRow = mysqli_fetch_array($res);
                     <p class="info">Phone:</p>
                     <p class="info cont">
                         <?php
+                        //Format the phone number for display
                         $phone = "(" . substr($userRow['PhoneNum'],0,3) . ") " . substr($userRow['PhoneNum'],3,3) . "-"
                             . substr($userRow['PhoneNum'],6,4);
                         echo $phone;
@@ -76,14 +77,18 @@ $userRow = mysqli_fetch_array($res);
                 <div>
                     <p class="info">Address:</p>
                     <p class="info cont"><?php echo $userRow['Addr1']?></p>
-                    <?php if (!is_null($userRow['Addr2'])){
+                    <?php 
+                    if (!is_null($userRow['Addr2'])){
                         echo "<p class=\"info cont\">" . $userRow['Addr2'] . "</p>";
-                    } ?>
+                    } 
+                    ?>
                     <p class="info cont"><?php echo $userRow['City'] . ", " . $userRow['State'] . " " . $userRow['ZIP'] ?></p>
                     <p class="info">Credit Card:</p>
-                    <?php if (!is_null($userRow['CCNum'])){
+                    <?php
+                    if (!is_null($userRow['CCNum'])){
                         echo "<p class=\"info cont\">************" . substr($userRow['CCNum'], -4) . "</p>";
-                    } ?>
+                    } 
+                    ?>
                 </div>
             </div>
         </div>
