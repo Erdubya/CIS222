@@ -41,7 +41,6 @@ if (isset($_POST['sign-in'])) {
         <?php
     }
 }
-
 ?>
 
 <!DOCTYPE html>

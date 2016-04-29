@@ -8,6 +8,20 @@ if (!isset($_SESSION['employee'])) {
     header("Location: index.php");
 }
 
+//Get logged in employee's information
+$sql = "SELECT UserID, UserLevel FROM Users WHERE UserID=" . $_SESSION['employee'];
+$result = mysqli_query($link, $sql);
+$employee = mysqli_fetch_array($result);
+
+//This array sets the user levels available for use.  255 and 0 must always exist.
+$avail_levels = array(
+    "Customer" => 0,
+    "Employee" => 1,
+    "Manager" => 10,
+    "Owner" => 20,
+    "Administrator" => 255
+);
+
 ob_start();
 echo '<div>';
 include '_EmpOptions.php';
@@ -45,6 +59,7 @@ if (isset($_POST['select'])) {
     } else {
         $ccnum = "Credit Card";
     }
+    $ulevel = $row['UserLevel'];
 }
 
 ?>
@@ -90,6 +105,7 @@ if (isset($_POST['select'])) {
                         <li class="clearImage"><a href="#tabs-1">Account</a></li>
                         <li class="clearImage"><a href="#tabs-2">Address</a></li>
                         <li class="clearImage"><a href="#tabs-3">Payment</a></li>
+                        <li class="clearImage"><a href="#tabs-4">Clearance</a></li>
                     </ul>
                     <div id="tabs-1" class="tabbs">
                         <div id="reg-form-1" class="reg-form">
@@ -145,7 +161,31 @@ if (isset($_POST['select'])) {
                                     <td><input type="text" name="LName" id="lname" placeholder="<?= htmlspecialchars($lname) ?>" value=""/></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text" name="CCNum" id="credit" placeholder="<?= htmlspecialchars($ccnum) ?>" maxlength="16" value=""/></td>
+                                    <td><input type="text" name="CCNum" id="credit" placeholder="<?= htmlspecialchars($ccnum) ?>" maxlength="16" value="" disabled  /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="tabs-4" class="tabbs">
+                        <div id="reg-form-4" class="reg-form">
+                            <table class="fill" align="center" border="0">
+                                <tr>
+                                    <td><select name="ULevel" id="ulevel"">
+                                            <?php
+                                            foreach ($avail_levels as $key => $value){
+                                                echo "<option value='$value' ";
+                                                if ($value == $ulevel) {
+                                                    echo "selected ";
+                                                }
+                                                if (($employee['UserLevel'] <= $value || $employee['UserLevel'] <= $ulevel)) {
+                                                    if ($employee['UserLevel'] != 255)
+                                                        echo "disabled";
+                                                }
+                                                echo ">$key</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -217,6 +257,7 @@ if (isset($_POST['select'])) {
 
         $("#input-dialog").dialog({
             autoOpen: true,
+            closeOnEscape: false,
             dialogClass: "no-close",
             draggable: false,
             resizable: false,

@@ -18,7 +18,7 @@ ob_start();
         <a href="edit-user.php">
             <button class="emp-options center" name="customer" type="button">Edit User</button>
         </a><br>
-        <a href="edit-inkventory.php">
+        <a href="edit-inventory.php">
             <button class="emp-options center" name="inventory" type="button">Edit Inventory</button>
         </a><br>
         <a href="emp-logout.php?logout&redirect=<?php echo $red ?>">

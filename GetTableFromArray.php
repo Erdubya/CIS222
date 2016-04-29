@@ -18,7 +18,7 @@ echo '<table class="items">';
 echo '<thead><tr>';
 
 if (isset($_GET['remove'])) {
-    echo '<th class="radio">&#x267A;</th>';
+    echo '<th class="table-ops">&#x267A;</th>';
 }
 
 echo '<th>Item</th>';
@@ -34,7 +34,7 @@ foreach ($_SESSION['items'] as $key => $item) {
     
     //Column for removal
     if (isset($_GET['remove'])) {
-        echo '<td class=radio>';
+        echo '<td class=table-ops>';
         echo "<form class='removeItem' method=\"post\" action=\"RemoveItemFromArray.php\">";
         echo "<input type='hidden' name='remItem' value='$key'>";
         echo "<input class='remove-in' type='submit' value='&#x2717'>";

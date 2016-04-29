@@ -31,14 +31,19 @@ if (isset($_POST['edit'])) {
                     case "ZIP":
                         $insert = $value + 0;
                         break;
+                    case "Password": 
+                    case "passconf":
+                    case "oldPass":
+                        $insert = "'" . md5(mysqli_real_escape_string($link, $value)) . "'";
+                        break;
                     default:
                         $insert = "'" . mysqli_real_escape_string($link, $value) . "'";
                 }
-//            var_dump($insert);
+//                var_dump($insert);
                 
                 //Set up SQL string using form names and normalized values
                 $sql = "UPDATE Users SET $key=$insert WHERE UserID=" . $_SESSION['user'];
-//            var_dump($sql);
+//                var_dump($sql);
 
                 //Only submit if the filed should be submitted
                 if ($key != "emailconf" && $key != "passconf" && $key != "oldPass" && $key != "edit") {
@@ -47,7 +52,9 @@ if (isset($_POST['edit'])) {
                 }
             }
         }
+    } else {
+        echo "NOPE";
     }
 
-    header("Location: home.php");
+    header("Location: edit-account.php");
 }

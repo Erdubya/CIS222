@@ -33,23 +33,8 @@ if(isset($_POST['signup'])) {
         $ccnum = mysqli_real_escape_string($link, 'NULL');
     }
     $upass = md5(mysqli_real_escape_string($link, $_POST['pass']));
-
-    var_dump($fname);
-    var_dump($lname);
-    var_dump($addr1);
-    var_dump($addr2);
-    var_dump($city);
-    var_dump($state);
-    var_dump($zcode);
-    var_dump($email);
-    var_dump($phone);
-    var_dump($ccnum);
-    var_dump($upass);
-
-    if($fname == NULL){
-
-    }
-        $qry = "INSERT INTO Users(FName,LName,Addr1,Addr2,City,State,ZIP,EmailAddr,PhoneNum,CCNum,Password) VALUES($fname,'$lname','$addr1',$addr2,'$city','$state',$zcode,'$email',$phone,$ccnum,'$upass')";
+    
+    $qry = "INSERT INTO Users(FName,LName,Addr1,Addr2,City,State,ZIP,EmailAddr,PhoneNum,CCNum,Password) VALUES($fname,'$lname','$addr1',$addr2,'$city','$state',$zcode,'$email',$phone,$ccnum,'$upass')";
     var_dump($qry);
 
     if($row = mysqli_query($link, $qry)) {
@@ -64,6 +49,6 @@ if(isset($_POST['signup'])) {
 
     var_dump($row);
     
-//    header("Location: home.php");
+    header("Location: home.php");
 }
 ?>
