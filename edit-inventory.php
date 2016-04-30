@@ -78,7 +78,6 @@ if (!isset($_SESSION['items']))
                 url: 'PostItemToInventory.php',
                 data: $(that).closest('form').serialize(),
                 success: function () {
-                    alert("It Worked!");
                     refreshTable();
                 }
             });

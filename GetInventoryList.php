@@ -42,7 +42,7 @@ $rowNum = $alternate = 1;
         echo "<input class='remove-in' type='reset' value='&#x274C'> ";
         echo "</td>";
         
-        echo "<td class='itemId'><input name='ItemID' class='invNum invEdit' type='text' value='" . $row['ItemID'] . "' disabled></td>";
+        echo "<td class='itemId'><input name='ItemID' class='invNum invEdit' type='text' value='" . $row['ItemID'] . "' readonly></td>";
         echo "<td class='itemName'><input name='Name' class='invEdit' type='text' value='" . $row['Name'] . "'></td>";
         echo "<td class='itemDesc'><input name='Description' class='invEdit' type='text' value='" . $row['Description'] . "'></td>";
         
@@ -74,12 +74,12 @@ $rowNum = $alternate = 1;
     <!-- Table and Form for New Item   -->
         <tr class='itemRow<?echo $alternate?> tableRow'>
             <td colspan='7'>
-                <form name='new' class='editItem' method='post' action=''>
+                <form name='new' class='editItem' method='post' action='PostItemToInventory.php'>
                     <table class='inner'>
                         <tbody>
                         <tr>
                             <td class=table-ops>
-                                <input name='submitItem' class='remove-in' form='new' type='submit' value='&#x2713'>
+                                <input name='submitItem' class='remove-in' type='submit' value='&#x2713'>
                                 <input class='remove-in' type='reset' value='&#x274C'>
                             <td class='itemId'>New Item</td>
                             <td class='itemName'><input name='Name' class='invEdit' type='text' placeholder="New Item"></td>

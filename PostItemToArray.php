@@ -28,7 +28,7 @@ if (UPCA_Check($_POST['item'])) {
                             <td><input type="password" name="empPswd" placeholder="Password" required></td>
                         </tr>
                         <tr>
-                            <td><button type="submit button" name="sign-in">Log In</button>
+                            <td><button type="submit" name="sign-in">Log In</button>
                         </tr>
                     </table>
                 </form>
