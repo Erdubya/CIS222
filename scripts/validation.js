@@ -5,52 +5,52 @@ function formValidate() {
 
 	var x = document.getElementById('email').value;
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tEmail is missing\n";
+		validationMessage += "- Email is missing\n";
 		valid = false;
 	}
 	x = document.getElementById('emailconf').value;
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tEmail conformation is missing\n";
+		validationMessage += "- Email conformation is missing\n";
 		valid = false;
 	}
 	x = document.getElementById('pass').value
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tpassword is missing\n";
+		validationMessage += "- password is missing\n";
 		valid = false;
 	}
 	x = document.getElementById('passconf').value;
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tpassword conformation is missing\n";
+		validationMessage += "- password conformation is missing\n";
 		valid = false;
 	}
 	x = document.getElementById('phone').value;
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tPhone number is missing\n";
+		validationMessage += "- Phone number is missing\n";
 		valid = false;
 	}
 	x = document.getElementById('addr1').value;
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tAddress is missing\n";
+		validationMessage += "- Address is missing\n";
 		valid = false;
 	}
 	x = document.getElementById('city').value;
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tCity is missing\n";
+		validationMessage += "- City is missing\n";
 		valid = false;
 	}
 	x = document.getElementById('state').value;
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tState is missing\n";
+		validationMessage += "- State is missing\n";
 		valid = false;
 	}
 	x = document.getElementById('zip').value;
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tZip code is missing\n";
+		validationMessage += "- Zip code is missing\n";
 		valid = false;
 	}
 	x = document.getElementById('lname').value;
 	if(x == null || x == ""){
-		validationMessage = validationMessage + "\tLast name is missing\n";
+		validationMessage += "- Last name is missing\n";
 		valid = false;
 	}
 
@@ -60,14 +60,14 @@ function formValidate() {
 		x = document.getElementById('email').value;
 		y = document.getElementById('emailconf').value;
 		if (x != y) {
-			validationMessage = validationMessage + "Emails do not match!\n";
+			validationMessage += "Emails do not match!\n";
 			valid = false;
 		}
 
 		x = document.getElementById('pass').value;
 		y = document.getElementById('passconf').value;
 		if (x != y) {
-			validationMessage = validationMessage + "Passwords do not match!\n";
+			validationMessage += "Passwords do not match!\n";
 			valid = false;
 		}
 	}
@@ -118,16 +118,35 @@ function updateValid() {
 //Validation for Inventory Editor
 function updateInventory() {
 	var valid = true;
-	var y;
+	var validationMessage = "The following errors occurred:\n"
 	var x;
-	var validationMessage;
 	
-	x = document.getElementsByName("Restricted");
-	// if (x.value != 1) {
-	// 	console.log(x);
-	// 	valid = false;
-	// 	validationMessage = "HUHUHUH";
-	// }
+	//Check name input of submitted form
+	x = $("#updateID input[name='Name']").val();
+	if (x == null || x == "") {
+		valid = false;
+		validationMessage += "- Name cannot be empty\n"
+	} else if (x.length > 20) {
+		valid = false;
+		validationMessage += "- Name is too long (20)\n"
+	}
+
+	//Check description input of submitted form
+	x = $("#updateID input[name='Description']").val();
+	if (x == null || x == "") {
+		valid = false;
+		validationMessage += "- Description cannot be empty\n"
+	} else if (x.length > 80) {
+		valid = false;
+		validationMessage += "- Description is too long (80)\n"
+	}
+
+	//Check price input of submitted form
+	x = $("#updateID input[name='Price']").val();
+	if (x == null || x == "") {
+		valid = false;
+		validationMessage += "- Price cannot be empty\n"
+	}
 
 	if (!valid) {
 		window.alert(validationMessage);

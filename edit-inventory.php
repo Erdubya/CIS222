@@ -73,14 +73,19 @@ if (!isset($_SESSION['items']))
         $(document).on('submit', 'form.editItem', function (e) {
             e.preventDefault();
             var that = this;
-            $.ajax({
-                type: 'post',
-                url: 'PostItemToInventory.php',
-                data: $(that).closest('form').serialize(),
-                success: function () {
-                    refreshTable();
-                }
-            });
+            that.setAttribute("id", "updateID");
+            if (updateInventory()) {
+                $.ajax({
+                    type: 'post',
+                    url: 'PostItemToInventory.php',
+                    data: $(that).closest('form').serialize(),
+                    success: function () {
+                        refreshTable();
+                    }
+                });
+            } else {
+                refreshTable()
+            }
         });
     });
 
@@ -90,6 +95,7 @@ if (!isset($_SESSION['items']))
 
     function refreshTable() {
         $('#tableHolder').load('GetInventoryList.php', function () {
+            
             var element = document.getElementById("tableHolder");
             element.scrollTop = element.scrollHeight;
         });

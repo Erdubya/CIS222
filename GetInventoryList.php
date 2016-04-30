@@ -34,7 +34,7 @@ $rowNum = $alternate = 1;
     while ($row = mysqli_fetch_array($result)) {
         echo "<tr class='itemRow$alternate tableRow'>";
         //Nested table to hold forms
-        echo "<td colspan='7'><form name='$rowNum' class='editItem' method='POST' onsubmit='return updateInventory()' action='PostItemToInventory.php'><table class='inner'><tbody><tr>";
+        echo "<td colspan='7'><form name='$rowNum' class='editItem' method='POST' action='PostItemToInventory.php'><table class='inner'><tbody><tr>";
         
         //Column for options
         echo '<td class=table-ops>';
@@ -81,6 +81,7 @@ $rowNum = $alternate = 1;
                             <td class=table-ops>
                                 <input name='submitItem' class='remove-in' type='submit' value='&#x2713'>
                                 <input class='remove-in' type='reset' value='&#x274C'>
+                            </td>
                             <td class='itemId'>New Item</td>
                             <td class='itemName'><input name='Name' class='invEdit' type='text' placeholder="New Item"></td>
                             <td class='itemDesc'><input name='Description' class='invEdit' type='text' placeholder="New Item"></td>
