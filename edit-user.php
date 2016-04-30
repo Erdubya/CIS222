@@ -230,7 +230,7 @@ if (isset($_POST['select'])) {
 
     <script src="scripts/jquery.js"></script>
     <script src="scripts/jquery-ui.js"></script>
-    <script src="scripts/regVal.js"></script>
+    <script src="scripts/validation.js"></script>
     <script src="scripts/FuncScripts.js"></script>
     <script>
         $("#tabs").tabs();

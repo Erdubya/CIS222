@@ -35,7 +35,7 @@ foreach ($_SESSION['items'] as $key => $item) {
     //Column for removal
     if (isset($_GET['remove'])) {
         echo '<td class=table-ops>';
-        echo "<form class='removeItem' method=\"post\" action=\"RemoveItemFromArray.php\">";
+        echo "<form class='removeItem' method='post' action='RemoveItemFromArray.php'>";
         echo "<input type='hidden' name='remItem' value='$key'>";
         echo "<input class='remove-in' type='submit' value='&#x2717'>";
         echo "</form></td>";

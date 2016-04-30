@@ -42,9 +42,9 @@ if (!isset($_SESSION['items']))
 
         </div>
 
-        <div class="totals" id="totals">
+<!--        <div class="totals" id="totals">-->
 
-        </div>
+<!--        </div>-->
     </main>
 
     <footer>
@@ -64,44 +64,24 @@ if (!isset($_SESSION['items']))
 <script src="scripts/jquery.js"></script>
 <script src="scripts/jquery-ui.js"></script>
 <script src="scripts/FuncScripts.js"></script>
-<script src="scripts/jquery.floatThead.js"></script>
+<script src="scripts/validation.js"></script>
 <script type="text/javascript">
 
     var $items = $('table.items');
-    var input = document.getElementById('itemIn');
 
     $( document ).ready(function () {
-        $items.floatThead({
-            scrollContainer: function($items){
-                return $items.closest('.wrapper');
-            },
-            debug: true
-        });
-    });
-
-    $( document ).ready(function () {
-        $('form.editItem').on('submit', function (e) {
+        $(document).on('submit', 'form.editItem', function (e) {
             e.preventDefault();
+            var that = this;
             $.ajax({
                 type: 'post',
                 url: 'PostItemToInventory.php',
-                data: $('form').serialize(),
+                data: $(that).closest('form').serialize(),
                 success: function () {
+                    alert("It Worked!");
                     refreshTable();
-                    $("#itemForm")[0].reset();
-                    $items.floatThead('reflow');
                 }
             });
-        });
-    });
-
-    function selectInput() {
-        input.focus();
-    }
-
-    $(function () {
-        $("#cust-info").accordion({
-            heightStyle: "fill"
         });
     });
 
@@ -113,12 +93,7 @@ if (!isset($_SESSION['items']))
         $('#tableHolder').load('GetInventoryList.php', function () {
             var element = document.getElementById("tableHolder");
             element.scrollTop = element.scrollHeight;
-            $items.floatThead('reflow');
         });
-
-        $('#totals').load('GetTotals.php', function () {
-
-        })
     }
 </script>
 

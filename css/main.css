@@ -332,13 +332,11 @@ div.tableRow p {
 td.table-ops, th.table-ops {
     border-right: solid black 1px;
     width: 8%;
-    display: inline-block;
     text-align: center;
 }
 
 td.itemId, th.itemId {
     width: 10%;
-    display: inline-block;
     text-align: center;
     border-right: solid black 1px;
 }
@@ -347,35 +345,30 @@ td.itemName, th.itemName {
     width: 10%;
     text-align: left;
     padding-left: 5px !important;
-    display: inline-block;
     border-right: solid black 1px;
 }
 
 td.itemDesc, th.itemDesc {
-    width: 50%;
+    width: 52%;
     text-align: left;
     padding-left: 5px !important;
-    display: inline-block;
     border-right: solid black 1px;
 }
 
 td.itemAvail, th.itemAvail {
     width: 5%;
-    display: inline-block;
     text-align: center;
     border-right: solid black 1px;
 }
 
 td.itemRstrc, th.itemRstrc {
     width: 5%;
-    display: inline-block;
     text-align: center;
     border-right: solid black 1px;
 }
 
 td.itemPrice, th.itemPrice {
     width: 10%;
-    display: inline-block;
     text-align: center;
 }
 
@@ -400,7 +393,7 @@ input.invEdit {
 input.invCheck {
     transform:scale(1.5, 1.5);
 }
-input#invPrice {
+input.invPrice {
     text-align: center;
 }
 

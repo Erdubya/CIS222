@@ -102,7 +102,7 @@ $userRow = mysqli_fetch_array($res);
     });
     
     $( document ).ready(function () {
-        $('.removeItem').on('submit', function (e) {
+        $(document).on('submit', '.removeItem', function (e) {
             e.preventDefault();
             console.log($(this));
             $.ajax({
@@ -111,10 +111,8 @@ $userRow = mysqli_fetch_array($res);
                 data: $('form').serialize(),
                 success: function () {
                     refreshTable();
-                    $items.floatThead('reflow');
                 }
             });
-            alert("Ajax not running")
         });
     });
 

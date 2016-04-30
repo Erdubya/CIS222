@@ -2,7 +2,7 @@
 ob_start();
 require_once '_configuration.php';
 /*
- * This file will generate a table from the items database table.
+ * This file will generate an HTML table from the items database table.
  */
 session_start();
 $link = db_connect();
@@ -34,31 +34,31 @@ $rowNum = $alternate = 1;
     while ($row = mysqli_fetch_array($result)) {
         echo "<tr class='itemRow$alternate tableRow'>";
         //Nested table to hold forms
-        echo "<td colspan='7'><form name='$rowNum' class='editItem' method='post' action=''><table class='inner'><tbody><tr>";
+        echo "<td colspan='7'><form name='$rowNum' class='editItem' method='POST' onsubmit='return updateInventory()' action='PostItemToInventory.php'><table class='inner'><tbody><tr>";
         
         //Column for options
         echo '<td class=table-ops>';
-        echo "<input name='submitItem' class='remove-in' form='$rowNum' type='submit' value='&#x2713'> ";
-        echo "<input class='remove-in' form='$rowNum' type='reset' value='&#x2639'> ";
+        echo "<input name='submitItem' class='remove-in' type='submit' value='&#x2713'> ";
+        echo "<input class='remove-in' type='reset' value='&#x274C'> ";
         echo "</td>";
         
-        echo "<td class='itemId'><input name='ItemID' class='invNum invEdit' form='$rowNum' type='text' value='" . $row['ItemID'] . "' disabled></td>";
-        echo "<td class='itemName'><input name='Name' class='invEdit' form='$rowNum' type='text' value='" . $row['Name'] . "'></td>";
-        echo "<td class='itemDesc'><input name='Description' class='invEdit' form='$rowNum' type='text' value='" . $row['Description'] . "'></td>";
+        echo "<td class='itemId'><input name='ItemID' class='invNum invEdit' type='text' value='" . $row['ItemID'] . "' disabled></td>";
+        echo "<td class='itemName'><input name='Name' class='invEdit' type='text' value='" . $row['Name'] . "'></td>";
+        echo "<td class='itemDesc'><input name='Description' class='invEdit' type='text' value='" . $row['Description'] . "'></td>";
         
-        echo "<td class='itemAvail'><input name='Available' class='invCheck' form='$rowNum' type='checkbox' value='1'";
+        echo "<td class='itemAvail'><input name='Available' class='invCheck' type='checkbox' value='1'";
         if ($row['Available'] == 1) {
             echo "checked";
         }
         echo "></td>";
         
-        echo "<td class='itemRstrc'><input name='Restricted' class='invCheck' form='$rowNum' type='checkbox' value='1'";
+        echo "<td class='itemRstrc'><input name='Restricted' class='invCheck' type='checkbox' value='1'";
         if ($row['Restricted'] == 1) {
             echo "checked";
         }
         echo "></td>";
         
-        echo "<td class='itemPrice'><input name='Price' id='invPrice' class='invEdit' form='$rowNum' type='text' value='" . $row['Price'] . "'></td>";
+        echo "<td class='itemPrice'><input name='Price' class='invEdit invPrice' type='text' value='" . $row['Price'] . "'></td>";
         echo "</tr></tbody></table></form></td></tr>";
         
         //Sets Item number for the empty row
@@ -79,14 +79,14 @@ $rowNum = $alternate = 1;
                         <tbody>
                         <tr>
                             <td class=table-ops>
-                                <input name='submitItem' class='remove-in' form='$rowNum' type='submit' value='&#x2713'>
-                                <input class='remove-in' type='reset' value='&#x2639'>
+                                <input name='submitItem' class='remove-in' form='new' type='submit' value='&#x2713'>
+                                <input class='remove-in' type='reset' value='&#x274C'>
                             <td class='itemId'>New Item</td>
                             <td class='itemName'><input name='Name' class='invEdit' type='text' placeholder="New Item"></td>
                             <td class='itemDesc'><input name='Description' class='invEdit' type='text' placeholder="New Item"></td>
                             <td class='itemAvail'><input name='Available' class='invCheck' type='checkbox' value='1' title="In Stock?"></td>
                             <td class='itemRstrc'><input name='Restricted' class='invCheck' type='checkbox' value='1' title="18 and Up?"></td>
-                            <td class='itemPrice'><input name='Price' id='invPrice' class='invEdit' type='text' placeholder="99.99"></td>
+                            <td class='itemPrice'><input name='Price' class='invEdit invPrice' type='text' placeholder="99.99"></td>
                         </tr>
                         </tbody>
                     </table>

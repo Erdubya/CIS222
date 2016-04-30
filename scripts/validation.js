@@ -114,3 +114,24 @@ function updateValid() {
 	
 	return valid;
 }
+
+//Validation for Inventory Editor
+function updateInventory() {
+	var valid = true;
+	var y;
+	var x;
+	var validationMessage;
+	
+	x = document.getElementsByName("Restricted");
+	// if (x.value != 1) {
+	// 	console.log(x);
+	// 	valid = false;
+	// 	validationMessage = "HUHUHUH";
+	// }
+
+	if (!valid) {
+		window.alert(validationMessage);
+	}
+
+	return valid;
+}
