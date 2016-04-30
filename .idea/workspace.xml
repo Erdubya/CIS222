@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6afa15a1-220f-422c-9ba1-293c5f135fb5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GetInventoryList.php" afterPath="$PROJECT_DIR$/GetInventoryList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PostItemToInventory.php" afterPath="$PROJECT_DIR$/PostItemToInventory.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edit-inventory.php" afterPath="$PROJECT_DIR$/edit-inventory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/validation.js" afterPath="$PROJECT_DIR$/scripts/validation.js" />
     </list>
     <ignored path="CIS222.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit-inventory.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="edit-inventory.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/edit-inventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="86" column="30" selection-start-line="86" selection-start-column="30" selection-end-line="86" selection-end-column="30" />
+            <state relative-caret-position="-323">
+              <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -106,36 +105,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostItemToArray.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PostItemToArray.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
-              <folding>
-                <marker date="1461984235978" expanded="true" signature="299:353" placeholder="SELECT Name,... Item" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PostItemToInventory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PostItemToInventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="228">
+              <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
               <folding>
-                <marker date="1461985834384" expanded="true" signature="451:472" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:473" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:494" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:511" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:512" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:517" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:530" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:543" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:562" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:563" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="451:568" placeholder="UPDATE Item " />
-                <marker date="1461985834384" expanded="true" signature="687:799" placeholder="INSERT INTO Item... " />
+                <marker date="1461993850250" expanded="true" signature="509:530" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:531" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:552" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:569" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:570" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:575" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:588" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:601" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:620" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:621" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="509:626" placeholder="UPDATE Item " />
+                <marker date="1461993850250" expanded="true" signature="745:857" placeholder="INSERT INTO Item... " />
               </folding>
             </state>
           </provider>
@@ -163,7 +150,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="validation.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="validation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/validation.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2208">
@@ -237,10 +224,10 @@
         <option value="$PROJECT_DIR$/remove-item.php" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/PostItemToArray.php" />
-        <option value="$PROJECT_DIR$/PostItemToInventory.php" />
-        <option value="$PROJECT_DIR$/edit-inventory.php" />
         <option value="$PROJECT_DIR$/GetInventoryList.php" />
         <option value="$PROJECT_DIR$/scripts/validation.js" />
+        <option value="$PROJECT_DIR$/edit-inventory.php" />
+        <option value="$PROJECT_DIR$/PostItemToInventory.php" />
       </list>
     </option>
   </component>
@@ -434,7 +421,7 @@
       <workItem from="1461778758078" duration="7464000" />
       <workItem from="1461787676737" duration="595000" />
       <workItem from="1461953965638" duration="8329000" />
-      <workItem from="1461966121018" duration="15894000" />
+      <workItem from="1461966121018" duration="17324000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1461008651661</created>
@@ -541,11 +528,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461986114546</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Working inventory editor w/ error handling">
+      <created>1461991886962</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1461991886962</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189623000" />
+    <option name="totallyTimeSpent" value="191053000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -608,7 +602,8 @@
     <MESSAGE value="edit INv Functional Frontend" />
     <MESSAGE value="Working table-based AJAX" />
     <MESSAGE value="Working inventory editing (no error handling)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working inventory editing (no error handling)" />
+    <MESSAGE value="Working inventory editor w/ error handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working inventory editor w/ error handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -890,50 +885,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="347" column="34" selection-start-line="347" selection-start-column="34" selection-end-line="347" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostItemToArray.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
-          <folding>
-            <marker date="1461984235978" expanded="true" signature="299:353" placeholder="SELECT Name,... Item" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_EmpOptions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostItemToInventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-          <folding>
-            <marker date="1461985834384" expanded="true" signature="451:472" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:473" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:494" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:511" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:512" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:517" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:530" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:543" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:562" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:563" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="451:568" placeholder="UPDATE Item " />
-            <marker date="1461985834384" expanded="true" signature="687:799" placeholder="INSERT INTO Item... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -955,14 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit-inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="86" column="30" selection-start-line="86" selection-start-column="30" selection-end-line="86" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GetInventoryList.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -980,6 +928,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2208">
           <caret line="143" column="41" selection-start-line="143" selection-start-column="41" selection-end-line="143" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostItemToArray.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+          <folding>
+            <marker date="1461984235978" expanded="true" signature="299:353" placeholder="SELECT Name,... Item" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="347" column="34" selection-start-line="347" selection-start-column="34" selection-end-line="347" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostItemToInventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <folding>
+            <marker date="1461993850250" expanded="true" signature="509:530" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:531" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:552" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:569" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:570" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:575" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:588" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:601" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:620" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:621" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="509:626" placeholder="UPDATE Item " />
+            <marker date="1461993850250" expanded="true" signature="745:857" placeholder="INSERT INTO Item... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit-inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
           <folding />
         </state>
       </provider>

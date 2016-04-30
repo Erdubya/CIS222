@@ -41,10 +41,6 @@ if (!isset($_SESSION['items']))
         <div id="tableHolder" class="wrapper">
 
         </div>
-
-<!--        <div class="totals" id="totals">-->
-
-<!--        </div>-->
     </main>
 
     <footer>

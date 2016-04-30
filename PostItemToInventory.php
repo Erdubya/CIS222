@@ -9,8 +9,8 @@ if (!$link) {
 }
 
 $item = $_POST['ItemID'];
-$name = $_POST['Name'];
-$desc = $_POST['Description'];
+$name = mysqli_escape_string($link, $_POST['Name']);
+$desc = mysqli_escape_string($link, $_POST['Description']);
 $aval = $_POST['Available'];
 if (is_null($aval)) {
     $aval = 0;
