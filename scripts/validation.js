@@ -1,5 +1,5 @@
 //Validation for Create Account form
-function formValidate() {
+function registerAccount() {
 	var valid = true;
 	var validationMessage = "Please correct the errors:\n";
 
@@ -80,7 +80,7 @@ function formValidate() {
 }
 
 //Validation for Edit Account form
-function updateValid() {
+function updateAccount() {
 	var valid = true;
 	var y;
 	var x = document.getElementById('oldPass').value;
@@ -119,6 +119,7 @@ function updateValid() {
 function updateInventory() {
 	var valid = true;
 	var validationMessage = "The following errors occurred:\n"
+	var y = new RegExp("[\'\"@#$&\\\/\*]+");
 	var x;
 	
 	//Check name input of submitted form
@@ -129,6 +130,9 @@ function updateInventory() {
 	} else if (x.length > 20) {
 		valid = false;
 		validationMessage += "- Name is too long (20)\n"
+	} else if (y.test(x)) {
+		valid = false;
+		validationMessage += "- Name contains invalid characters\n"
 	}
 
 	//Check description input of submitted form
@@ -139,6 +143,9 @@ function updateInventory() {
 	} else if (x.length > 80) {
 		valid = false;
 		validationMessage += "- Description is too long (80)\n"
+	} else if (y.test(x)) {
+		valid = false;
+		validationMessage += "- Description contains invalid characters\n"
 	}
 
 	//Check price input of submitted form
@@ -146,6 +153,34 @@ function updateInventory() {
 	if (x == null || x == "") {
 		valid = false;
 		validationMessage += "- Price cannot be empty\n"
+	} else if (x.length > 6) {
+		valid = false;
+		validationMessage += "- Price is too high (999.99)\n"
+	} else if (y.test(x)) {
+		valid = false;
+		validationMessage += "- Price contains invalid characters\n"
+	} else {
+		//If the price passes the above test, check for valid formatting
+		var z = x.split(".");
+		if (z.length == 2) {
+			//With single decimal
+			if (z[0].length > 3 || z[1].length > 2) {
+				console.log("INside!");
+				valid = false;
+				validationMessage += "- Invalid price"
+			}
+		} else if (z.length > 2){
+			//With multiple decimals
+			console.log("ELSE");
+			valid = false;
+			validationMessage += "- Invalid price"
+		} else {
+			//With no decimals
+			if (z[0].length > 3) {
+				valid = false;
+				validationMessage += "- Invalid price"
+			}
+		}
 	}
 
 	if (!valid) {

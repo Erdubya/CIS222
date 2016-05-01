@@ -15,12 +15,6 @@ include '_EmpOptions.php';
 echo '</div>';
 $options = ob_get_clean();
 
-if (!isset($_SESSION['items']))
-    $_SESSION['items'] = array();
-
-//Get user info
-
-
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +30,13 @@ if (!isset($_SESSION['items']))
 
 <body>
 <div id="all" class="center">
+    <header>
+        <?= SMALL_IMG ?>
+        <h1 style="display: inline-block; vertical-align: 50%; margin: 0 10%; font-size: 3em">Inventory Manager</h1>
+    </header>
 
     <main class="itemTable">
-        <div id="tableHolder" class="wrapper">
+        <div id="tableHolder" class="wrapper inventory">
 
         </div>
     </main>
@@ -52,7 +50,6 @@ if (!isset($_SESSION['items']))
         <div class="center" id="button-left">
             <a class="center" href="home.php">Back</a>
         </div>
-        
     </footer>
 </div>
 
@@ -69,7 +66,9 @@ if (!isset($_SESSION['items']))
         $(document).on('submit', 'form.editItem', function (e) {
             e.preventDefault();
             var that = this;
+            //Set id for correct validation
             that.setAttribute("id", "updateID");
+            //If it validates, perform AJAX call.
             if (updateInventory()) {
                 $.ajax({
                     type: 'post',
@@ -91,7 +90,6 @@ if (!isset($_SESSION['items']))
 
     function refreshTable() {
         $('#tableHolder').load('GetInventoryList.php', function () {
-            
             var element = document.getElementById("tableHolder");
             element.scrollTop = element.scrollHeight;
         });

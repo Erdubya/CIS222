@@ -57,7 +57,7 @@ resetFields();
                 <li class="clearImage"><a href="#tabs-3">Payment</a></li>
                 <li class="clearImage"><a href="#tabs-4">Sign Up</a></li>
             </ul>
-            <form method="post" class="tabbed" id="reg-sub" onsubmit="return formValidate()" action="PostNewMember.php">
+            <form method="post" class="tabbed" id="reg-sub" onsubmit="return registerAccount()" action="PostNewMember.php">
                 <div id="tabs-1" class="tabbs">
                     <div id="reg-form-1" class="reg-form">
                         <table class="fill" align="center" border="0">

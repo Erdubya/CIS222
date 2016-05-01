@@ -99,7 +99,7 @@ if (isset($_POST['select'])) {
         ob_start();
         ?>
         <main>
-            <form method="post" class="tabbed" id="reg-sub" onsubmit="return updateValid()" action="PostEditMember.php">
+            <form method="post" class="tabbed" id="reg-sub" onsubmit="return updateAccount()" action="PostEditMember.php">
                 <div id="tabs" class="center">
                     <ul style="margin-top: auto; margin-bottom: auto;">
                         <li class="clearImage"><a href="#tabs-1">Account</a></li>

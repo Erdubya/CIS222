@@ -43,8 +43,8 @@ $rowNum = $alternate = 1;
         echo "</td>";
         
         echo "<td class='itemId'><input name='ItemID' class='invNum invEdit' type='text' value='" . $row['ItemID'] . "' readonly></td>";
-        echo "<td class='itemName'><input name='Name' class='invEdit' type='text' value='" . $row['Name'] . "'></td>";
-        echo "<td class='itemDesc'><input name='Description' class='invEdit' type='text' value='" . $row['Description'] . "'></td>";
+        echo "<td class='itemName'><input name='Name' class='invEdit' type='text' maxlength='20' value='" . $row['Name'] . "'></td>";
+        echo "<td class='itemDesc'><input name='Description' class='invEdit' type='text' maxlength='80' value='" . $row['Description'] . "'></td>";
         
         echo "<td class='itemAvail'><input name='Available' class='invCheck' type='checkbox' value='1'";
         if ($row['Available'] == 1) {
@@ -58,7 +58,7 @@ $rowNum = $alternate = 1;
         }
         echo "></td>";
         
-        echo "<td class='itemPrice'><input name='Price' class='invEdit invPrice' type='text' value='" . $row['Price'] . "'></td>";
+        echo "<td class='itemPrice'><input name='Price' class='invEdit invPrice' type='text' maxlength='6' value='" . $row['Price'] . "'></td>";
         echo "</tr></tbody></table></form></td></tr>";
         
         //Sets Item number for the empty row
@@ -83,11 +83,11 @@ $rowNum = $alternate = 1;
                                 <input class='remove-in' type='reset' value='&#x274C'>
                             </td>
                             <td class='itemId'>New Item</td>
-                            <td class='itemName'><input name='Name' class='invEdit' type='text' placeholder="New Item"></td>
-                            <td class='itemDesc'><input name='Description' class='invEdit' type='text' placeholder="New Item"></td>
+                            <td class='itemName'><input name='Name' class='invEdit' type='text' maxlength="20" placeholder="New Item"></td>
+                            <td class='itemDesc'><input name='Description' class='invEdit' type='text' maxlength="80" placeholder="New Item"></td>
                             <td class='itemAvail'><input name='Available' class='invCheck' type='checkbox' value='1' title="In Stock?"></td>
                             <td class='itemRstrc'><input name='Restricted' class='invCheck' type='checkbox' value='1' title="18 and Up?"></td>
-                            <td class='itemPrice'><input name='Price' class='invEdit invPrice' type='text' placeholder="99.99"></td>
+                            <td class='itemPrice'><input name='Price' class='invEdit invPrice' type='text' maxlength="6" placeholder="999.99"></td>
                         </tr>
                         </tbody>
                     </table>

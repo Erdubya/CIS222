@@ -121,6 +121,10 @@ button {
     height: 85vh;
 }
 
+.inventory {
+    height: 75vh;
+}
+
 table.items {
     width: 100%;
     border-collapse: collapse;
