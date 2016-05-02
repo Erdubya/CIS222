@@ -46,9 +46,9 @@ foreach ($_SESSION['items'] as $key => $item) {
     echo $item->GetItem();
     echo '</td><td class="midd num">';
     echo $item->GetItemNum();
-    echo '</td><td class="price">';
+    echo "</td><td class='price'><form class='editItem' method='POST' action='PostItemToArray.php'><input name='Price' class='invEdit invPrice' type='text' maxlength='6' value='";
     echo $item->GetPrice();
-    echo '</td>';
+    echo "' readonly><input type='submit' class='hide' name='element' value='$key'></form></td>";
     echo '</tr>';
 }
 echo '</tbody></table>';

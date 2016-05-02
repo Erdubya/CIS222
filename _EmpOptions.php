@@ -12,7 +12,7 @@ ob_start();
         <a href="confirmation.php">
             <button class="emp-options center" name="birth" type="button">Confirm Birthdate</button>
         </a><br>
-        <a href="edit-cart.php">
+        <a href="home.php?override">
             <button class="emp-options center" name="cart" type="button">Edit Cart</button>
         </a><br>
         <a href="edit-user.php">

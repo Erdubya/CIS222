@@ -265,6 +265,23 @@ div#tabs {
     outline: none;
 } 
 
+.overrideBox.ui-dialog, .overrideBox.ui-dialog .ui-dialog-buttonpane {
+    /*background: #008CBA;*/
+    text-align: center;
+}
+
+.overrideBox .ui-dialog-titlebar, .overrideBox .ui-dialog-title {
+    float: none !important;
+    background: #f00;
+}
+
+.overrideBox.ui-dialog .ui-dialog-buttonpane {
+    text-align: center;
+}
+.overrideBox.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    float: none;
+}
+
 table#passwords {
     margin-top: 20px;
 }

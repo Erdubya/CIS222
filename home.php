@@ -15,6 +15,15 @@ include '_EmpOptions.php';
 echo '</div>';
 $options = ob_get_clean();
 
+ob_start();
+?>
+<div>
+    <dialog id="override" title="Price Override">
+    </dialog>
+</div>
+<?php
+$override = ob_get_clean();
+
 if (!isset($_SESSION['items']))
     $_SESSION['items'] = array();
 
@@ -127,6 +136,8 @@ $userRow = mysqli_fetch_array($res);
         <?php
         if (isset($_SESSION['employee'])) {
             echo $options;
+            if (isset($_GET['override']))
+                echo $override;
         }
         ?>
     </footer>
@@ -141,6 +152,7 @@ $userRow = mysqli_fetch_array($res);
     
     var $items = $('table.items');
     var input = document.getElementById('itemIn');
+    var price;
     
     $( document ).ready(function () {
         $items.floatThead({
@@ -180,18 +192,65 @@ $userRow = mysqli_fetch_array($res);
     $(document).ready(function () {
         refreshTable();
     });
-
+    
     function refreshTable() {
         $('#tableHolder').load('GetTableFromArray.php', function () {
             var element = document.getElementById("tableHolder");
             element.scrollTop = element.scrollHeight;
             $items.floatThead('reflow');
+            price = $(this).find(".invPrice");
+            price.attr("readonly");
         });
         
         $('#totals').load('GetTotals.php', function () {
             
         })
     }
+
+    
+    var override = $("#override");
+    override.on("dialogclose", allowOverride);
+    override.on("dialogopen", allowOverride);
+
+    function allowOverride() {
+        var body = $("body");
+        console.log(price);
+        if (!!body.attr("onclick")) {
+            body.removeAttr("onclick");
+        } else {
+            body.attr("onclick", "selectInput()");
+        }
+
+    }
+    
+    $(document).on("click", function() {
+        if ($("#override").dialog("isOpen") == true)
+            price.removeAttr("readonly");
+    });
+
+    $(document).ready(function () {
+        override.dialog({
+            autoOpen: true,
+            dialogClass: "no-close overrideBox",
+            closeOnEscape: false,
+            draggable: false,
+            position: {my: "center bottom", at: "center bottom"},
+            modal: false,
+            resizable: false,
+            width: 300,
+            height: 100,
+            buttons: [
+                {
+                    text: "Close",
+                    click: function () {
+                        $(this).dialog("close");
+                        refreshTable();
+                        selectInput();
+                    }
+                }
+            ]
+        })
+    });
 </script>
 
 </body>
