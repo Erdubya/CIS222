@@ -3,7 +3,7 @@ require_once '_configuration.php';
 include_once '_Functions.php';
 
 //This file mimics an external bank.
-include_once 'CustBank/bank.php';
+require_once 'CustBank/bank.php';
 
 session_start();
 $link = db_connect();
@@ -18,7 +18,6 @@ $qry = mysqli_query($link, $sql);
 $result = mysqli_fetch_array($qry);
 
 $check = $bank->CheckCard($result['CCNum'], $result['FName'] . " " . $result['LName']);
-//var_dump($check);
 
 if (isset($_SESSION['items']) && $check) {
     //Create new order
@@ -27,17 +26,14 @@ if (isset($_SESSION['items']) && $check) {
     if (!$qry) {
         printf("Error message: " . mysqli_error($link));
     }
-    
-//    var_dump($createOrder);
-//    var_dump($qry);
 
     $orderID = mysqli_insert_id($link);
-//    var_dump($orderID);
+    var_dump($orderID);
 
     $totPrice = 0;
     foreach ($_SESSION['items'] as $item) {
         $strip = substr($item->GetItemNum(), 0, -1);
-//        var_dump($strip);
+        var_dump($strip);
         $exists = false;
 
         $res = mysqli_query($link, "SELECT ItemNum, Quantity FROM PurchItem WHERE OrderID=" . $orderID);
@@ -59,21 +55,21 @@ if (isset($_SESSION['items']) && $check) {
             $totPrice = $totPrice + $item->GetPrice();
         }
 
-//        var_dump($sql);
-//        var_dump($qry);
+        var_dump($sql);
+        var_dump($qry);
     }
 
     $sql = "UPDATE Orders SET TotPrice=" . $totPrice . " WHERE OrderID=" . $orderID;
     $qry = mysqli_query($link, $sql);
-//    var_dump($sql);
-//    var_dump($qry);
+    var_dump($sql);
+    var_dump($qry);
 
     unset($_SESSION['items']);
     mysqli_close($link);
 }
 
 echo '<a href="home.php">Home</a><br>';
-echo '<a href="logout.php?logout">Logout</a>';
+//echo '<a href="logout.php?logout">Logout</a>';
 
-header("Location: receipt.php?order=" . urlencode(base64_encode($orderID)));
-exit();
+//header("Location: receipt.php?order=" . urlencode(base64_encode($orderID)));
+//exit();

@@ -60,7 +60,7 @@ if (isset($_POST['item'])) {
 }
 
 //var_dump($_SESSION['items']);
-
+header("Location: home.php");
 mysqli_close($link);
 
 exit();

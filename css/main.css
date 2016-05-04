@@ -505,9 +505,12 @@ div#button-left a {
 }
 
 div#button-right {
-    text-align: right;
     margin: 0 0 0 20%;
     float: right;
+}
+
+input#selectAll {
+    
 }
 
 div#button-right button {

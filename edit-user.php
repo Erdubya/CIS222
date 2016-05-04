@@ -33,6 +33,7 @@ $result = mysqli_query($link, $sql);
 
 //If the row is found, set the form placeholders to the current values
 if (isset($_POST['select'])) {
+    $_SESSION['edit'] = $_POST['users'];
     $sql = "SELECT * FROM Users WHERE UserID=" . $_POST['users'];
     $result = mysqli_query($link, $sql);
     $row = mysqli_fetch_array($result);
@@ -99,7 +100,7 @@ if (isset($_POST['select'])) {
         ob_start();
         ?>
         <main>
-            <form method="post" class="tabbed" id="reg-sub" onsubmit="return updateAccount()" action="PostEditMember.php">
+            <form method="post" class="tabbed" id="reg-sub" onsubmit="return updateAccount()" action="PostEditUser.php">
                 <div id="tabs" class="center">
                     <ul style="margin-top: auto; margin-bottom: auto;">
                         <li class="clearImage"><a href="#tabs-1">Account</a></li>
@@ -170,7 +171,7 @@ if (isset($_POST['select'])) {
                         <div id="reg-form-4" class="reg-form">
                             <table class="fill" align="center" border="0">
                                 <tr>
-                                    <td><select name="ULevel" id="ulevel"">
+                                    <td><select name="UserLevel" id="ulevel"">
                                             <?php
                                             foreach ($avail_levels as $key => $value){
                                                 echo "<option value='$value' ";
@@ -192,7 +193,7 @@ if (isset($_POST['select'])) {
                     </div>
                 </div>
                 <div class="editSub">
-                    <input type="password" name="oldPass" id="oldPass" placeholder="Current Password">
+                    <input type="password" name="oldPass" id="oldPass" placeholder="Employee Password">
                     <button type="submit" name="edit">Confirm</button>
                 </div>
             </form>

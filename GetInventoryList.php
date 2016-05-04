@@ -20,7 +20,10 @@ $rowNum = $alternate = 1;
 <table class="items">
     <thead class="tableRow">
     <tr>
-        <th class="table-ops">Options</th>
+        <th class="table-ops">
+            Options
+            <input type="checkbox" class="invCheck" id="selectAll" name="selectAll">
+        </th>
         <th class="itemId">Item No.</th>
         <th class="itemName">Item Name</th>
         <th class="itemDesc">Description</th>

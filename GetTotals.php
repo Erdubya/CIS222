@@ -19,7 +19,7 @@ if (!$link) {
     foreach ($_SESSION['items'] as $item) {
         $total = $item->GetPrice() + $total;
     }
-    echo $total;
+    echo number_format((float)$total, 2, '.', '');
     ?>">
 </form>
 

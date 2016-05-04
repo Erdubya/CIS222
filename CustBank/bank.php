@@ -26,7 +26,7 @@ class Bank
 //                var_dump($test);
                 
                 if ($test[0] == $number) {
-                    if ($test[1] == $name) {
+                    if (strcasecmp($test[1], $name) == 0) {
                         if ($test[2]) {
                             $found = true;
                         }
@@ -55,7 +55,7 @@ class Bank
      * @param $number int The card number to test.
      * @return bool The validity of the number.
      */
-    public function MOD10($number)
+    private function MOD10($number)
     {
         if (is_numeric($number)) {
             $length = strlen($number);

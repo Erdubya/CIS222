@@ -10,7 +10,7 @@ ob_start();
     ?>
     <div id="emp-buttons" class="center options">
         <a href="home.php?override">
-            <button class="emp-options center" name="cart" type="button">Price Override</button>
+            <button class="emp-options center" name="cart" type="button" disabled>Price Override</button>
         </a><br>
         <a href="edit-user.php">
             <button class="emp-options center" name="customer" type="button">User Manager</button>

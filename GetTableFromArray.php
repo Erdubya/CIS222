@@ -1,6 +1,7 @@
 <?php
 ob_start();
 require_once '_configuration.php';
+include "class/ChromePhp.php";
 /*
  * This file will generate a table based off an array of Items.
  */
@@ -11,7 +12,6 @@ $link = db_connect();
 if (!$link) {
     echo 'BOO!!! Not conncted again!!!';
 }
-
 $alternate = 0;
 
 echo '<table class="items">';

@@ -110,17 +110,28 @@ $options = ob_get_clean();
             console.log(params);
             e.preventDefault();
             
-            //Create and submit dummy for for redirect
-            var formStr = '<form action="GenerateBarcodes.php" method="post">';
-            for (var i = 0; i < params.length; i++) {
-                formStr += '<input type="hidden" name="' + i + '" value="' + params[i] + '">'; 
+            if (params.length > 0) {
+                //Create and submit dummy for for redirect
+                var formStr = '<form action="GenerateBarcodes.php" method="post">';
+                for (var i = 0; i < params.length; i++) {
+                    formStr += '<input type="hidden" name="' + i + '" value="' + params[i] + '">';
+                }
+                formStr += '</form>';
+                var form = $(formStr);
+                console.log(formStr);
+                $('body').append(form);
+                $(form).submit();
+            } else {
+                window.alert("Select some items!");
             }
-            formStr += '</form>';
-            var form = $(formStr);
-            console.log(formStr);
-            $('body').append(form);
-            $(form).submit();
         })
+    });
+
+    $(document).ready(function () {
+        $(document).on("click", "#selectAll", function () {
+            console.log("INSIDE");
+            $("input:checkbox[name=generate]").prop('checked', $(this).prop("checked"));
+        });
     });
 </script>
 

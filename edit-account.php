@@ -60,7 +60,7 @@ if (is_null($row)) {
 <div id="all" class="center">
     <header class="center">
         <a href="index.php" id="headerimg"><?= MAIN_IMAGE ?></a>
-        <h2>Edit User Account</h2>
+        <h2>Edit Your Account</h2>
     </header>
 
     <main>
