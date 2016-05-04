@@ -62,9 +62,10 @@ $options = ob_get_clean();
 <script src="scripts/FuncScripts.js"></script>
 <script src="scripts/validation.js"></script>
 <script type="text/javascript">
-
+    //The main table
     var $items = $('table.items');
 
+    //Add or update item
     $( document ).ready(function () {
         $(document).on('submit', 'form.editItem', function (e) {
             e.preventDefault();
@@ -90,10 +91,12 @@ $options = ob_get_clean();
         });
     });
 
+    //Initially load the table
     $(document).ready(function () {
         refreshTable();
     });
 
+    //Refresh the table data
     function refreshTable() {
         $('#tableHolder').load('GetInventoryList.php', function () {
             var element = document.getElementById("tableHolder");
@@ -101,6 +104,7 @@ $options = ob_get_clean();
         });
     }
     
+    //Barcode generator
     $(document).ready(function () {
         $("#barcode").on("click", function (e) {
             //Create array of checked generation option checkboxes
@@ -127,6 +131,7 @@ $options = ob_get_clean();
         })
     });
 
+    //Select all checkbox
     $(document).ready(function () {
         $(document).on("click", "#selectAll", function () {
             console.log("INSIDE");

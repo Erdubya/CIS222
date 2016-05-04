@@ -38,6 +38,7 @@ if (isset($_POST['select'])) {
     $result = mysqli_query($link, $sql);
     $row = mysqli_fetch_array($result);
     
+    $userID = $row['UserID'];
     if (!is_null($row['FName'])) {
         $fname = $row['FName'];
     } else {
@@ -178,8 +179,8 @@ if (isset($_POST['select'])) {
                                                 if ($value == $ulevel) {
                                                     echo "selected ";
                                                 }
-                                                if (($employee['UserLevel'] <= $value || $employee['UserLevel'] <= $ulevel)) {
-                                                    if ($employee['UserLevel'] != 255)
+                                                if ($employee['UserLevel'] <= $value || $employee['UserLevel'] <= $ulevel)  {
+                                                    if ($employee['UserLevel'] != 255 || $userID == 00001)
                                                         echo "disabled";
                                                 }
                                                 echo ">$key</option>";
@@ -194,6 +195,7 @@ if (isset($_POST['select'])) {
                 </div>
                 <div class="editSub">
                     <input type="password" name="oldPass" id="oldPass" placeholder="Employee Password">
+                    <input type="hidden" name="userID" id="userID" value="<? echo $userID ?>">
                     <button type="submit" name="edit">Confirm</button>
                 </div>
             </form>
@@ -244,6 +246,12 @@ if (isset($_POST['select'])) {
             "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV",
             "WY"
         ];
+        
+        $(document).on("click", function () {
+            if ($("input[name=userID]").val() == 1) {
+                $("input").prop("disabled", true);
+            }
+        });
 
         $("#state").autocomplete({
             source: function (req, responseFn) {

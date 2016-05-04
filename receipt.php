@@ -100,7 +100,6 @@ if (is_null($order)) {
         
         $sql = "SELECT PurchItem.ItemNum, PurchItem.PurchPrice, PurchItem.Quantity, Item.Name FROM PurchItem JOIN Item ON PurchItem.ItemNum = Item.ItemID WHERE PurchItem.OrderID=$orderID";
         $result = mysqli_query($link, $sql);
-//        var_dump($result);
 
         while (!is_null($row = mysqli_fetch_array($result))) {
             echo '<tr class="items"><td colspan="3"><div class="leftAlign">';

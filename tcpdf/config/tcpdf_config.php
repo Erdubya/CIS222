@@ -113,7 +113,7 @@ define ('PDF_HEADER_TITLE', 'Scan It! Barcode Generator');
 /**
  * Header description string.
  */
-define ('PDF_HEADER_STRING', "www.scan-it.com\nwww.tcpdf.org");
+define ('PDF_HEADER_STRING', "Scan It! - A member of CJ Conglomerate\nwww.scan-it.com");
 
 /**
  * Document unit of measure [pt=point, mm=millimeter, cm=centimeter, in=inch].

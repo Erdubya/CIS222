@@ -3,7 +3,7 @@ require_once '_configuration.php';
 include_once '_Functions.php';
 
 //This file mimics an external bank.
-require_once 'CustBank/bank.php';
+require_once 'CustBank/Bank.php';
 
 session_start();
 $link = db_connect();
@@ -28,12 +28,10 @@ if (isset($_SESSION['items']) && $check) {
     }
 
     $orderID = mysqli_insert_id($link);
-    var_dump($orderID);
 
     $totPrice = 0;
     foreach ($_SESSION['items'] as $item) {
         $strip = substr($item->GetItemNum(), 0, -1);
-        var_dump($strip);
         $exists = false;
 
         $res = mysqli_query($link, "SELECT ItemNum, Quantity FROM PurchItem WHERE OrderID=" . $orderID);
@@ -54,22 +52,13 @@ if (isset($_SESSION['items']) && $check) {
             $qry = mysqli_query($link, $sql);
             $totPrice = $totPrice + $item->GetPrice();
         }
-
-        var_dump($sql);
-        var_dump($qry);
     }
 
     $sql = "UPDATE Orders SET TotPrice=" . $totPrice . " WHERE OrderID=" . $orderID;
     $qry = mysqli_query($link, $sql);
-    var_dump($sql);
-    var_dump($qry);
 
     unset($_SESSION['items']);
     mysqli_close($link);
 }
 
-echo '<a href="home.php">Home</a><br>';
-//echo '<a href="logout.php?logout">Logout</a>';
-
-//header("Location: receipt.php?order=" . urlencode(base64_encode($orderID)));
-//exit();
+header("Location: receipt.php?order=" . urlencode(base64_encode($orderID)));

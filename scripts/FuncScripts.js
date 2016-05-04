@@ -41,11 +41,11 @@ $("#emp-options").dialog({
     draggable: true,
     resizable: false,
     width: 275,
-    height: 425,
+    height: 465,
     position: {my: "left", at: "left top"}
 });
 
-// Employee options dialog
+// Birthdate confirmation dialog
 $("#bconfirm").dialog({
     autoOpen: false,
     dialogClass: "",

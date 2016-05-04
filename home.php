@@ -143,6 +143,33 @@ $userRow = mysqli_fetch_array($res);
     </footer>
 </div>
 
+<?php
+if ($info['Restricted'] = 1) {
+ob_start();
+?>
+<dialog id="bconfirm">
+    <div>
+        <form method="POST" id="loginform">
+            <table class="center fill">
+                <tr>
+                    <td><input type="text" name="empId" max="5" placeholder="Employee ID" required autofocus></td>
+                </tr>
+                <tr>
+                    <td><input type="password" name="empPswd" placeholder="Password" required></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" name="sign-in">Log In</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</dialog>
+<?php
+ob_end_flush();
+}
+?>
 
 <script src="scripts/jquery.js"></script>
 <script src="scripts/jquery-ui.js"></script>
@@ -165,11 +192,17 @@ $userRow = mysqli_fetch_array($res);
 
     $( document ).ready(function () {
         $('#itemForm').on('submit', function (e) {
+            var data = $('#itemForm').serialize();
+            console.log(data);
             e.preventDefault();
             $.ajax({
                 type: 'post',
+                url: ''
+            })
+            $.ajax({
+                type: 'post',
                 url: 'PostItemToArray.php',
-                data: $('form').serialize(),
+                data: data,
                 success: function () {
                     refreshTable();
                     $("#itemForm")[0].reset();
@@ -206,7 +239,6 @@ $userRow = mysqli_fetch_array($res);
             
         })
     }
-
     
     var override = $("#override");
     override.on("dialogclose", allowOverride);
@@ -220,7 +252,6 @@ $userRow = mysqli_fetch_array($res);
         } else {
             body.attr("onclick", "selectInput()");
         }
-
     }
     
     $(document).on("click", function() {
