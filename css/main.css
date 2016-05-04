@@ -504,6 +504,27 @@ div#button-left a {
     clear: none;
 }
 
+div#button-right {
+    text-align: right;
+    margin: 0 0 0 20%;
+    float: right;
+}
+
+div#button-right button {
+    display: block;
+    border-radius: 8px;
+    width: 160px;
+    clear: none;
+    background-color: #008CBA;
+    border: none;
+    padding: 15px 15px;
+    text-align: center;
+    line-height: 1em;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 span#help {
     width: 16px;
     border-radius: 8px;

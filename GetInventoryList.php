@@ -38,8 +38,9 @@ $rowNum = $alternate = 1;
         
         //Column for options
         echo '<td class=table-ops>';
-        echo "<input name='submitItem' class='remove-in' type='submit' value='&#x2713'> ";
-        echo "<input class='remove-in' type='reset' value='&#x274C'> ";
+        echo "<input name='submitItem' class='remove-in' type='submit' value='&#x2713'>";
+        echo "<input class='remove-in' type='reset' value='&#x274C'>";
+        echo "<input name='generate' class='invCheck' type='checkbox' value='" . $row['ItemID'] ."'>";
         echo "</td>";
         
         echo "<td class='itemId'><input name='ItemID' class='invNum invEdit' type='text' value='" . $row['ItemID'] . "' readonly></td>";

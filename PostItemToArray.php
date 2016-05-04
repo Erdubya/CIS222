@@ -9,7 +9,7 @@ if (!$link) {
     echo 'BOO!!! Not conncted!!!';
 }
 
-if (isset($_POST['Price'])) {
+if (isset($_POST['element'])) {
     $key = $_POST['element'];
     if (!empty($_SESSION['items'][$key])) {
         $_SESSION['items'][$key]->SetPrice($_POST['Price']);
@@ -32,8 +32,7 @@ if (isset($_POST['item'])) {
                     <form method="POST" id="loginform">
                         <table class="center fill">
                             <tr>
-                                <td><input type="text" name="empId" max="5" placeholder="Employee ID" required
-                                           autofocus></td>
+                                <td><input type="text" name="empId" max="5" placeholder="Employee ID" required autofocus></td>
                             </tr>
                             <tr>
                                 <td><input type="password" name="empPswd" placeholder="Password" required></td>
@@ -41,6 +40,7 @@ if (isset($_POST['item'])) {
                             <tr>
                                 <td>
                                     <button type="submit" name="sign-in">Log In</button>
+                                </td>
                             </tr>
                         </table>
                     </form>
@@ -53,15 +53,16 @@ if (isset($_POST['item'])) {
             $temp->SetItem($info['Name']);
             $temp->SetItemNum($_POST['item']);
             $temp->SetPrice($info['Price']);
-
+//            var_dump($temp);
             $_SESSION['items'][count($_SESSION['items'])] = $temp;
         }
     }
 }
 
+//var_dump($_SESSION['items']);
+
 mysqli_close($link);
 
-//header("Location: home.php");
 exit();
 
 ?>

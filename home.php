@@ -45,7 +45,7 @@ $userRow = mysqli_fetch_array($res);
 
 </head>
 
-<body onclick="selectInput()">
+<body onclick="selectInput()" class="unselectable">
 <div id="all" class="center">
 
     <main class="table">

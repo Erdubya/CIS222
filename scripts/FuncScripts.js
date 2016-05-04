@@ -41,7 +41,7 @@ $("#emp-options").dialog({
     draggable: true,
     resizable: false,
     width: 275,
-    height: 475,
+    height: 425,
     position: {my: "left", at: "left top"}
 });
 

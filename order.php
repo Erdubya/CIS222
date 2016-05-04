@@ -58,7 +58,7 @@ $userRow = mysqli_fetch_array($res);
             <div id="option-stack" class="center">
                 <a href="PostOrder.php">
                     <button class="cust-options center" name="order" type="button">Confirm Order</button>
-                </a></br>
+                </a><br>
                 <a href="home.php">
                     <button class="cust-options center" name="cancel" type="button">Go Back</button>
                 </a><br>

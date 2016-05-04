@@ -9,8 +9,7 @@
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
-            <excludedPath local="true" path="$PROJECT_DIR$/tcpdf" />
-            <excludedPath path="/tcpdf" />
+            <excludedPath local="true" path="$PROJECT_DIR$/tcpdf/examples" />
             <excludedPath path="/em_phpTest" />
             <excludedPath local="true" path="$PROJECT_DIR$/.gitattributes" />
             <excludedPath path="/.bash_history" />

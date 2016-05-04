@@ -15,31 +15,9 @@ function UPCA_Check($number)
 {
     if (is_numeric($number)) {
         $length = strlen($number);
-        $curPos = 0;
-        $total = 0;
 
         if ($length == 12) {
-            while ($curPos <= 10) {
-                $digit = substr($number, $curPos, 1);
-
-                $total = $digit + $total;
-
-                $curPos = $curPos + 2;
-            }
-
-            $total = $total * 3;
-            $curPos = 1;
-
-            while ($curPos <= 9) {
-                $digit = substr($number, $curPos, 1);
-
-                $total = $digit + $total;
-
-                $curPos = $curPos + 2;
-            }
-
-            $checkInt = 10 - ($total % 10);
-            $check = $checkInt == substr($number, -1, 1);
+            $check = CalcUPC($number) == substr($number, -1, 1);
         } else {
             echo "second";
             $check = false;
@@ -52,6 +30,37 @@ function UPCA_Check($number)
     var_dump($check);
 
     return $check;
+}
+
+function CalcUPC($number) {
+    $curPos = 0;
+    $total = 0;
+
+    while ($curPos <= 10) {
+        $digit = substr($number, $curPos, 1);
+
+        $total = $digit + $total;
+
+        $curPos = $curPos + 2;
+    }
+
+    $total = $total * 3;
+    $curPos = 1;
+
+    while ($curPos <= 9) {
+        $digit = substr($number, $curPos, 1);
+
+        $total = $digit + $total;
+
+        $curPos = $curPos + 2;
+    }
+
+    if ($total % 10 != 0) {
+        $checkInt = 10 - ($total % 10);
+    } else {
+        $checkInt = 0;
+    }
+    return $checkInt;
 }
 
 /**

@@ -11,11 +11,11 @@ require_once '_configuration.php';
 //$link = db_connect();
 
 //htmlmail('erikrw96@gmail.com','Test mail','This is a test.  Only a test');
-$bank = new Bank();
+//$bank = new Bank();
+//
+//$bank->CheckCard("5575965987658265", "Joe Schmoe");
 
-$bank->CheckCard("5575965987658265", "Joe Schmoe");
-
-
+echo CalcUPC(00000000013);
 
 //echo base64_encode("12");
 //echo base64_decode("MTI=");

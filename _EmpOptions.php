@@ -9,18 +9,15 @@ ob_start();
     echo "<p class='center optdia'>Logged in as: " . $_SESSION['employee'] . "</p>";
     ?>
     <div id="emp-buttons" class="center options">
-        <a href="confirmation.php">
-            <button class="emp-options center" name="birth" type="button">Confirm Birthdate</button>
-        </a><br>
         <a href="home.php?override">
-            <button class="emp-options center" name="cart" type="button">Edit Cart</button>
+            <button class="emp-options center" name="cart" type="button">Price Override</button>
         </a><br>
         <a href="edit-user.php">
-            <button class="emp-options center" name="customer" type="button">Edit User</button>
+            <button class="emp-options center" name="customer" type="button">User Manager</button>
         </a><br>
         <a href="edit-inventory.php">
-            <button class="emp-options center" name="inventory" type="button">Edit Inventory</button>
-        </a><br>
+            <button class="emp-options center" name="inventory" type="button">Inventory Manager</button>
+        </a><hr style="margin-top: 0">
         <a href="emp-logout.php?logout&redirect=<?php echo $red ?>">
             <button class="emp-options center" name="cancel" type="button">Logout</button>
         </a><br>

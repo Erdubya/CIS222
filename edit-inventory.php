@@ -50,6 +50,9 @@ $options = ob_get_clean();
         <div class="center" id="button-left">
             <a class="center" href="home.php">Back</a>
         </div>
+        <div class="center" id="button-right">
+            <button type="button" id="barcode">Generate</button>
+        </div>
     </footer>
 </div>
 
@@ -75,6 +78,9 @@ $options = ob_get_clean();
                     url: 'PostItemToInventory.php',
                     data: $(that).closest('form').serialize(),
                     success: function () {
+                        window.alert("Saved!");
+                    },
+                    complete: function () {
                         refreshTable();
                     }
                 });
@@ -94,6 +100,28 @@ $options = ob_get_clean();
             element.scrollTop = element.scrollHeight;
         });
     }
+    
+    $(document).ready(function () {
+        $("#barcode").on("click", function (e) {
+            //Create array of checked generation option checkboxes
+            var params = $("input[name=generate]:checked").map(function () {
+                return this.value;
+            });
+            console.log(params);
+            e.preventDefault();
+            
+            //Create and submit dummy for for redirect
+            var formStr = '<form action="GenerateBarcodes.php" method="post">';
+            for (var i = 0; i < params.length; i++) {
+                formStr += '<input type="hidden" name="' + i + '" value="' + params[i] + '">'; 
+            }
+            formStr += '</form>';
+            var form = $(formStr);
+            console.log(formStr);
+            $('body').append(form);
+            $(form).submit();
+        })
+    });
 </script>
 
 </body>
