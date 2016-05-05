@@ -174,7 +174,6 @@ ob_end_flush();
 <script src="scripts/jquery.js"></script>
 <script src="scripts/jquery-ui.js"></script>
 <script src="scripts/FuncScripts.js"></script>
-<script src="scripts/jquery.floatThead.js"></script>
 <script type="text/javascript">
     
     var $items = $('table.items');
@@ -225,12 +224,11 @@ ob_end_flush();
     $(document).ready(function () {
         refreshTable();
     });
-    
+
     function refreshTable() {
         $('#tableHolder').load('GetTableFromArray.php', function () {
             var element = document.getElementById("tableHolder");
             element.scrollTop = element.scrollHeight;
-            $items.floatThead('reflow');
             price = $(this).find(".invPrice");
             price.attr("readonly");
         });

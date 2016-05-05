@@ -1,7 +1,6 @@
 <?php
 require_once '_configuration.php';
 include_once '_Functions.php';
-include "class/ChromePhp.php";
 session_start();
 $link = db_connect();
 
@@ -14,7 +13,6 @@ if (isset($_POST['element'])) {
     if (!empty($_SESSION['items'][$key])) {
         $_SESSION['items'][$key]->SetPrice($_POST['Price']);
     }
-    ChromePhp::log("IT HAPPENED");
 }
 
 if (isset($_POST['item'])) {

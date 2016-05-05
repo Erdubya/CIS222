@@ -1,7 +1,6 @@
 <?php
 ob_start();
 require_once '_configuration.php';
-include "class/ChromePhp.php";
 /*
  * This file will generate a table based off an array of Items.
  */
