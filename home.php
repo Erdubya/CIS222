@@ -178,16 +178,7 @@ ob_end_flush();
     
     var $items = $('table.items');
     var input = document.getElementById('itemIn');
-    var price;
-    
-    $( document ).ready(function () {
-        $items.floatThead({
-            scrollContainer: function($items){
-                return $items.closest('.wrapper');
-            },
-            debug: true
-        });
-    });    
+    var price;    
 
     $( document ).ready(function () {
         $('#itemForm').on('submit', function (e) {
