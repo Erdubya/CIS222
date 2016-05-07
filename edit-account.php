@@ -1,27 +1,34 @@
 <?php
-ob_start();
 require_once '_configuration.php';
+/*
+ * The page used by a user to edit their own account.
+ */
 session_start();
 $link = db_connect();
+ob_start();
 
 if (!isset($_SESSION['user'])) {
+    //Redirect if user is not logged in
     header("Location: index.php");
 }
 
+//Create output for employee options
 ob_start();
 echo '<div>';
 include '_EmpOptions.php';
 echo '</div>';
 $options = ob_get_clean();
 
+//Get user information
 $sql = "SELECT * FROM Users WHERE UserID=" . $_SESSION['user'];
 $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_array($result);
 
-//If the row is found, set the form placeholders to the current values
 if (is_null($row)) {
+    //Redirect if the user does not exist
     header("Location: index.php");
 } else {
+    //If the row is found, set the form placeholders to the current values
     if (!is_null($row['FName'])) {
         $fname = $row['FName'];
     } else {
@@ -51,7 +58,7 @@ if (is_null($row)) {
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    <title><?= PAGE_TITLE ?> Edit Account</title>
+    <title><?= PAGE_TITLE ?> - Edit Account</title>
     <link href="css/jquery-ui.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 </head>
@@ -141,6 +148,7 @@ if (is_null($row)) {
     <footer class="center">
         <?php
         if (isset($_SESSION['employee'])) {
+            //Display employee options if logged in
             echo $options;
         }
         ?>
@@ -168,6 +176,7 @@ if (is_null($row)) {
 <script>
     $("#tabs").tabs();
 
+    //Data for autocomplete
     var data = [
         "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL",
         "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA",
@@ -177,6 +186,7 @@ if (is_null($row)) {
         "WY"
     ];
 
+    //Script for autocomplete
     $("#state").autocomplete({
         source: function (req, responseFn) {
             var re = $.ui.autocomplete.escapeRegex(req.term);

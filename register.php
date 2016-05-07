@@ -1,19 +1,24 @@
 <?php
 require_once '_configuration.php';
-
+/*
+ * New user registration page
+ */
 session_start();
 $link = db_connect();
 
 if (isset($_SESSION['user']) != "") {
+    //If a user is already logged in redirect the to home
     header("Location: home.php");
 }
 
+//Generate employee options dialog
 ob_start();
 echo '<div>';
 include '_EmpOptions.php';
 echo '</div>';
 $options = ob_get_clean();
 
+//Set global functions to allow for field resetting
 global $fname, $lname, $addr1, $addr2, $city, $state, $zcode, $email, $phone, $ccnum, $upass;
 function resetFields()
 {
@@ -30,6 +35,7 @@ function resetFields()
     $upass = null;
 }
 
+//reset the fields to null
 resetFields();
 
 ?>
@@ -73,8 +79,7 @@ resetFields();
                                 <td><input type="password" name="pass" id="pass" placeholder="Your Password"/></td>
                             </tr>
                             <tr>
-                                <td><input type="password" name="passconf" id="passconf"
-                                           placeholder="Confirm Password"/></td>
+                                <td><input type="password" name="passconf" id="passconf" placeholder="Confirm Password"/></td>
                             </tr>
                         </table>
                     </div>
@@ -113,16 +118,13 @@ resetFields();
                     <div id="reg-form-3" class="reg-form">
                         <table class="fill" align="center" border="0">
                             <tr>
-                                <td><input type="text" name="fname" id="fname" placeholder="First Name"
-                                           value="<?= htmlspecialchars($fname) ?>"/></td>
+                                <td><input type="text" name="fname" id="fname" placeholder="First Name" value="<?= htmlspecialchars($fname) ?>"/></td>
                             </tr>
                             <tr>
-                                <td><input type="text" name="lname" id="lname" placeholder="Last Name"
-                                           value="<?= htmlspecialchars($lname) ?>"/></td>
+                                <td><input type="text" name="lname" id="lname" placeholder="Last Name" value="<?= htmlspecialchars($lname) ?>"/></td>
                             </tr>
                             <tr>
-                                <td><input type="text" name="credit" id="credit" placeholder="Credit Card"
-                                           maxlength="16"/></td>
+                                <td><input type="text" name="credit" id="credit" placeholder="Credit Card" maxlength="16"/></td>
                             </tr>
                         </table>
                     </div>
@@ -131,13 +133,13 @@ resetFields();
                     <div id="reg-form-4" class="reg-form">
                         <table class="fill" align="center" border="0">
                             <tr>
-                                <td><p>tab 1 complete</p></td>
+                                <td><p>tab 1 complete (JS)</p></td>
                             </tr>
                             <tr>
-                                <td><p>tab 2 complete</p></td>
+                                <td><p>tab 2 complete (JS)</p></td>
                             </tr>
                             <tr>
-                                <td><p>tab 3 complete</p></td>
+                                <td><p>tab 3 complete (JS)</p></td>
                             </tr>
                             <tr>
                                 <td>
@@ -153,6 +155,7 @@ resetFields();
 
     <footer class="center">
         <?php
+        //Display employee options
         if (isset($_SESSION['employee'])) {
             echo $options;
         }
@@ -178,6 +181,7 @@ resetFields();
 <script src="scripts/validation.js"></script>
 <script src="scripts/FuncScripts.js"></script>
 <script>
+    //Designates tabbed section
     $("#tabs").tabs();
 
     var data = [

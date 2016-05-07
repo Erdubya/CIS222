@@ -8,22 +8,24 @@ require_once '_configuration.php';
 session_start();
 $link = db_connect();
 
-if (!$link) {
-    echo 'BOO!!! Not conncted again!!!';
-}
+//Set row color iteration
 $alternate = 0;
 
 echo '<table class="items">';
 echo '<thead><tr>';
 
 if (isset($_GET['remove'])) {
+    //If remove screen, display header for remove button
     echo '<th class="table-ops">&#x267A;</th>';
 }
 
+//Normal table headers
 echo '<th>Item</th>';
 echo '<th class="midd num">Item Number</th>';
 echo '<th class="price">Price</th>';
 echo '</tr></thead><tbody>';
+
+//Display row for each item in array
 foreach ($_SESSION['items'] as $key => $item) {
     //Set row color
     $alternate++;
@@ -31,7 +33,7 @@ foreach ($_SESSION['items'] as $key => $item) {
         $alternate = 1;
     echo '<tr class="itemRow' . $alternate . '">';
     
-    //Column for removal
+    //Column for removal button
     if (isset($_GET['remove'])) {
         echo '<td class=table-ops>';
         echo "<form class='removeItem' method='post' action='RemoveItemFromArray.php'>";
@@ -40,7 +42,7 @@ foreach ($_SESSION['items'] as $key => $item) {
         echo "</form></td>";
     }
     
-    //Standard table
+    //Normal table
     echo '<td class="name">';
     echo $item->GetItem();
     echo '</td><td class="midd num">';

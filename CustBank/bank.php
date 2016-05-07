@@ -17,13 +17,11 @@ class Bank
     function CheckCard($number, $name)
     {
         $found = false;
-//        var_dump($number);
         if (Bank::MOD10($number)) {
             $myfile = fopen('CustBank/clientcards.txt', 'r') or die("Unable to open file!");
             
             while (!feof($myfile) && !$found) {
                 $test = fgetcsv($myfile);
-//                var_dump($test);
                 
                 if ($test[0] == $number) {
                     if (strcasecmp($test[1], $name) == 0) {
@@ -47,9 +45,6 @@ class Bank
     /**
      * Description:
      *   Test for card number validity, using variation of the MOD 10 algorithm.
-     * Preconditions:
-     *   None.
-     * Postconditions:
      *   Will return true if card number is valid.
      *   Otherwise, returns false.
      * @param $number int The card number to test.
@@ -61,17 +56,12 @@ class Bank
             $length = strlen($number);
             $curPos = $length - 2;
             $total = 0;
-//            var_dump($length);
-//            var_dump($curPos);
 
             if ($length != 0) {
                 if ($length % 2 == 0) {
                     while ($curPos >= 2) {
                         $digit2 = 2 * substr($number, $curPos, 1);
                         $digit1 = substr($number, $curPos - 1, 1);
-
-//                        var_dump($digit2);
-//                        var_dump($digit1);
 
                         if ($digit2 >= 10) {
                             $digit2 = $digit2 - 9;
@@ -87,14 +77,10 @@ class Bank
                         $digit2 = $digit2 - 9;
                     }
                     $total = $total + $digit2;
-//                    var_dump($total);
                 } else {
                     while ($curPos >= 1) {
                         $digit2 = 2 * substr($number, $curPos, 1);
                         $digit1 = substr($number, $curPos - 1, 1);
-
-//                        var_dump($digit2);
-//                        var_dump($digit1);
 
                         if ($digit2 >= 10) {
                             $digit2 = $digit2 - 9;

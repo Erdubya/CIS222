@@ -1,20 +1,25 @@
 <?php
-ob_start();
 require_once '_configuration.php';
+/*
+ * Main page of the system.
+ */
 session_start();
 $link = db_connect();
+ob_start();
 
 //Check for login
 if (!isset($_SESSION['user'])) {
     header("Location: index.php");
 }
 
+//Generate employee options dialog
 ob_start();
 echo '<div>';
 include '_EmpOptions.php';
 echo '</div>';
 $options = ob_get_clean();
 
+//Generate price override dialog
 ob_start();
 ?>
 <div>
@@ -25,11 +30,11 @@ ob_start();
 $override = ob_get_clean();
 
 if (!isset($_SESSION['items']))
+    //If the item array is not set, create it.
     $_SESSION['items'] = array();
 
 //Get user info
 $res = mysqli_query($link, "SELECT * FROM Users WHERE UserID=" . $_SESSION['user']);
-
 $userRow = mysqli_fetch_array($res);
 
 ?>
@@ -42,19 +47,19 @@ $userRow = mysqli_fetch_array($res);
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
-
 </head>
 
+<!-- onclick used to return to input form for scanner; unselecteable prevents dr. clickndrag-->
 <body onclick="selectInput()" class="unselectable">
 <div id="all" class="center">
 
     <main class="table">
+        <!-- Main table -->
         <div id="tableHolder" class="wrapper">
-    
         </div>
     
+        <!-- Total box -->
         <div class="totals" id="totals">
-            
         </div>
     </main>
     
@@ -64,6 +69,7 @@ $userRow = mysqli_fetch_array($res);
             Hello, <?php echo $userRow['FName'] . " " . $userRow['LName']; ?>
         </div>
 
+        <!-- Info box -->
         <div class="cust-info center">
             <div id="cust-info">
                 <h3 onmouseup="selectInput()">Account</h3>
@@ -102,6 +108,7 @@ $userRow = mysqli_fetch_array($res);
             </div>
         </div>
         
+        <!-- Buttons -->
         <div id="cust-options" class="center options">
             <a href="order.php">
                 <button class="cust-options center" name="order" type="button">Order Now</button>
@@ -126,6 +133,7 @@ $userRow = mysqli_fetch_array($res);
     </aside>
 
     <div>
+        <!-- Hidden form for item input -->
         <form id="itemForm" class="item_input hide" method="post" action="PostItemToArray.php">
             <input type="text" id="itemIn" name="item" required autofocus autocomplete="off">
             <input type="submit" value="Submit">
@@ -135,8 +143,10 @@ $userRow = mysqli_fetch_array($res);
     <footer>
         <?php
         if (isset($_SESSION['employee'])) {
+            //Display employee options
             echo $options;
             if (isset($_GET['override']))
+                //Display override box
                 echo $override;
         }
         ?>
@@ -144,7 +154,7 @@ $userRow = mysqli_fetch_array($res);
 </div>
 
 <?php
-if ($info['Restricted'] = 1) {
+//Generate age check dialog
 ob_start();
 ?>
 <dialog id="bconfirm">
@@ -167,8 +177,7 @@ ob_start();
     </div>
 </dialog>
 <?php
-ob_end_flush();
-}
+$ageCheck = ob_get_clean();
 ?>
 
 <script src="scripts/jquery.js"></script>
@@ -180,6 +189,7 @@ ob_end_flush();
     var input = document.getElementById('itemIn');
     var price;    
 
+    //AJAX call for item input
     $( document ).ready(function () {
         $('#itemForm').on('submit', function (e) {
             var data = $('#itemForm').serialize();
@@ -187,35 +197,34 @@ ob_end_flush();
             e.preventDefault();
             $.ajax({
                 type: 'post',
-                url: ''
-            })
-            $.ajax({
-                type: 'post',
                 url: 'PostItemToArray.php',
                 data: data,
                 success: function () {
                     refreshTable();
                     $("#itemForm")[0].reset();
-                    $items.floatThead('reflow');
                 }
             });
         });
     });
 
+    //Item input form
     function selectInput() {
         input.focus();
     }
 
+    //Info box accordion generation
     $(function () {
         $("#cust-info").accordion({
             heightStyle: "fill"
         });
     });
 
+    //Initial table refresh
     $(document).ready(function () {
         refreshTable();
     });
 
+    //Reload table and total box
     function refreshTable() {
         $('#tableHolder').load('GetTableFromArray.php', function () {
             var element = document.getElementById("tableHolder");
@@ -229,10 +238,12 @@ ob_end_flush();
         })
     }
     
+    //Set override data
     var override = $("#override");
     override.on("dialogclose", allowOverride);
     override.on("dialogopen", allowOverride);
 
+    //Allows for selection of page data
     function allowOverride() {
         var body = $("body");
         console.log(price);
@@ -243,11 +254,13 @@ ob_end_flush();
         }
     }
     
+    //Allows form editing
     $(document).on("click", function() {
         if ($("#override").dialog("isOpen") == true)
             price.removeAttr("readonly");
     });
 
+    //Displays dialog to announce price editing
     $(document).ready(function () {
         override.dialog({
             autoOpen: true,

@@ -1,19 +1,17 @@
 <?php
-/**
- * User: erdub
- * Date: 3/9/2016
- * Time: 15:45
- */
-
 require_once '_configuration.php';
+/*
+ * Indoctrinate a new member to the system
+ */
 $link = db_connect();
 
-if(isset($_POST['signup'])) {
+if (isset($_POST['signup'])) {
+    //Set data to variables
     $fname = mysqli_real_escape_string($link, $_POST['fname']);
     if (empty($fname)) {
         $fname = mysqli_real_escape_string($link, 'NULL');
     } else {
-        $fname = "'" . mysqli_real_escape_string($link, $_POST['fname']) .  "'";
+        $fname = "'" . mysqli_real_escape_string($link, $_POST['fname']) . "'";
     }
     $lname = mysqli_real_escape_string($link, $_POST['lname']);
     $addr1 = mysqli_real_escape_string($link, $_POST['addr1']);
@@ -33,11 +31,12 @@ if(isset($_POST['signup'])) {
         $ccnum = mysqli_real_escape_string($link, 'NULL');
     }
     $upass = md5(mysqli_real_escape_string($link, $_POST['pass']));
-    
-    $qry = "INSERT INTO Users(FName,LName,Addr1,Addr2,City,State,ZIP,EmailAddr,PhoneNum,CCNum,Password) VALUES($fname,'$lname','$addr1',$addr2,'$city','$state',$zcode,'$email',$phone,$ccnum,'$upass')";
-    var_dump($qry);
 
-    if($row = mysqli_query($link, $qry)) {
+    $qry = "INSERT INTO Users(FName,LName,Addr1,Addr2,City,State,ZIP,EmailAddr,PhoneNum,CCNum,Password) 
+              VALUES($fname,'$lname','$addr1',$addr2,'$city','$state',$zcode,'$email',$phone,$ccnum,'$upass')";
+
+    //Check if query is successful
+    if ($row = mysqli_query($link, $qry)) {
         ?>
         <script>alert('Success');</script>
         <?php
@@ -47,8 +46,6 @@ if(isset($_POST['signup'])) {
         <?php
     }
 
-    var_dump($row);
-    
     header("Location: home.php");
 }
 ?>

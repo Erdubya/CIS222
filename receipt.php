@@ -1,9 +1,13 @@
 <?php
-ob_start();
 require_once '_configuration.php';
+/*
+ * Generate a receipt for an order
+ */
 session_start();
 $link = db_connect();
+ob_start();
 
+//Decode the order ID and get information from the order and user
 $orderID = base64_decode($_GET['order']);
 
 $qry = mysqli_query($link, "SELECT * FROM Orders WHERE OrderID=$orderID AND UserID=" . $_SESSION['user']);
@@ -12,6 +16,7 @@ $order = mysqli_fetch_array($qry);
 $qry = mysqli_query($link, "SELECT * FROM Users WHERE UserID=" . $_SESSION['user']);
 $user = mysqli_fetch_array($qry);
 
+//If the order does not exist, redirect to the main page
 if (is_null($order)) {
     header("Location: index.php");
 }
@@ -98,9 +103,11 @@ if (is_null($order)) {
         <?php
         ob_start();
         
+        //Get information from order
         $sql = "SELECT PurchItem.ItemNum, PurchItem.PurchPrice, PurchItem.Quantity, Item.Name FROM PurchItem JOIN Item ON PurchItem.ItemNum = Item.ItemID WHERE PurchItem.OrderID=$orderID";
         $result = mysqli_query($link, $sql);
 
+        //Write entry for each item in the order
         while (!is_null($row = mysqli_fetch_array($result))) {
             echo '<tr class="items"><td colspan="3"><div class="leftAlign">';
             echo '<p><em>' . $row['ItemNum'] . '</em></p><br>';
@@ -111,7 +118,6 @@ if (is_null($order)) {
             echo '</div></td>';
             echo '</tr>';
         }
-        
         ?>
         </tbody>
     </table> 
@@ -119,8 +125,6 @@ if (is_null($order)) {
 </body>
 </html>
 <?php
-$receipt = ob_get_clean();
-
-echo $receipt;
+ob_end_flush();
 
 ?>

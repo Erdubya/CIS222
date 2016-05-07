@@ -1,17 +1,27 @@
 <?php
 require_once "_configuration.php";
+/*
+ * This file generates the options dialog for logged-in employees
+ */
 $link = db_connect();
+
 ob_start();
 ?>
 <!--Dialog popup for options-->
 <dialog id='emp-options' title="Employee Options">
     <?php
+    //Get redirect fot logout
     $red = basename($_SERVER['PHP_SELF']);
+    
+    //Get employee name
     $sql = "SELECT FName, LName FROM Users WHERE UserID=" . $_SESSION['employee'];
     $result = mysqli_query($link, $sql);
     $row = mysqli_fetch_array($result);
+    
+    //Display employee ID and name
     echo "<p class='center optdia'>Logged in as: " . $_SESSION['employee'] . "</p>";
     echo "<p class='center optdia'>". $row['FName'] . " " . $row['LName'] . "</p>";
+    
     ?>
     <div id="emp-buttons" class="center options">
         <a href="home.php?override">

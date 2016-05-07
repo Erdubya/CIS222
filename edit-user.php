@@ -1,10 +1,14 @@
 <?php
-ob_start();
 require_once '_configuration.php';
+/*
+ * Page where employees can edit user accounts
+ */
 session_start();
 $link = db_connect();
+ob_start();
 
 if (!isset($_SESSION['employee'])) {
+    //Redirect if employee is not logged in
     header("Location: index.php");
 }
 
@@ -13,31 +17,30 @@ $sql = "SELECT UserID, UserLevel FROM Users WHERE UserID=" . $_SESSION['employee
 $result = mysqli_query($link, $sql);
 $employee = mysqli_fetch_array($result);
 
-//This array sets the user levels available for use.  255 and 0 must always exist.
-$avail_levels = array(
-    "Customer" => 0,
-    "Employee" => 1,
-    "Manager" => 10,
-    "Owner" => 20,
-    "Administrator" => 255
-);
+//This array sets the user levels available for use.  255 and 0 must always exist, other levels set in config
+$avail_levels = array("Customer" => 0);
+$avail_levels = array_merge($avail_levels, unserialize(HIERARCHY));
+$avail_levels["Administrator"] = 255;
 
+//Generate employee options dialog
 ob_start();
 echo '<div>';
 include '_EmpOptions.php';
 echo '</div>';
 $options = ob_get_clean();
 
+//Get user list
 $sql = "SELECT UserID, LName, FName FROM Users ORDER BY LName";
 $result = mysqli_query($link, $sql);
 
-//If the row is found, set the form placeholders to the current values
 if (isset($_POST['select'])) {
     $_SESSION['edit'] = $_POST['users'];
+    //Get user information
     $sql = "SELECT * FROM Users WHERE UserID=" . $_POST['users'];
     $result = mysqli_query($link, $sql);
     $row = mysqli_fetch_array($result);
     
+    //If the row is found, set the form placeholders to the current values
     $userID = $row['UserID'];
     if (!is_null($row['FName'])) {
         $fname = $row['FName'];
@@ -69,7 +72,7 @@ if (isset($_POST['select'])) {
     <html lang="en-us">
     <head>
         <meta charset="utf-8">
-        <title><?= PAGE_TITLE ?> Edit Account</title>
+        <title><?= PAGE_TITLE ?> - Edit User</title>
         <link href="css/jquery-ui.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
     </head>
@@ -82,12 +85,13 @@ if (isset($_POST['select'])) {
         </header>
         
         <?php
+        
+        //Generate selection dialog
         if (!isset($_POST['select'])) {
             echo '<dialog id="input-dialog" title="Select User" class="center">';
             echo '<form method="post">';
             echo '<select name="users" size="10" id="userSelect">';
             while($row = mysqli_fetch_array($result)) {
-                var_dump($row);
                 echo "<option value='" . $row['UserID'] . "'>" . $row['LName'] . ", " . $row['FName'] . "</option>";
             }
             echo '</select>';
@@ -95,9 +99,7 @@ if (isset($_POST['select'])) {
             echo '</form>';
             echo '</dialog>';
         }
-        ?>
-
-        <?php
+        
         ob_start();
         ?>
         <main>
@@ -107,7 +109,7 @@ if (isset($_POST['select'])) {
                         <li class="clearImage"><a href="#tabs-1">Account</a></li>
                         <li class="clearImage"><a href="#tabs-2">Address</a></li>
                         <li class="clearImage"><a href="#tabs-3">Payment</a></li>
-                        <li class="clearImage"><a href="#tabs-4">Clearance</a></li>
+                        <li class="clearImage"><a href="#tabs-4">Permissions</a></li>
                     </ul>
                     <div id="tabs-1" class="tabbs">
                         <div id="reg-form-1" class="reg-form">
@@ -202,6 +204,7 @@ if (isset($_POST['select'])) {
         </main>
         <?php
         if (isset($_POST['select'])) {
+            //If selected, show table
             ob_end_flush();
         } else {
             ob_end_clean();
@@ -210,6 +213,7 @@ if (isset($_POST['select'])) {
 
         <footer class="center">
             <?php
+            //Display employee options
             if (isset($_SESSION['employee'])) {
                 echo $options;
             }

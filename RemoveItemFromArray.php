@@ -1,23 +1,18 @@
 <?php
 require_once '_configuration.php';
-include_once '_Functions.php';
+/*
+ * Script to facilitate the removal of an item from the order array
+ */
 session_start();
-$link = db_connect();
 
-if (!$link) {
-    echo 'BOO!!! Not conncted!!!';
-}
-
+//Set which Item to remove
 $remove = $_POST['remItem'];
 
-$_SESSION['last']['item'] = $_SESSION['items'][$remove];
-$_SESSION['last']['remove'] = $remove;
-var_dump($_SESSION['last']);
-
+//Unset that item
 unset($_SESSION['items'][$remove]);
-$_SESSION['items'] = array_values($_SESSION['items']);
 
-mysqli_close($link);
+//Renumber the array
+$_SESSION['items'] = array_values($_SESSION['items']);
 
 header("Location: remove-item.php");
 

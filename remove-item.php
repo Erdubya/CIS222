@@ -1,35 +1,34 @@
 <?php
-ob_start();
 require_once '_configuration.php';
+/*
+ * Form to remove items from order
+ */
 session_start();
 $link = db_connect();
+ob_start();
 
 //Check for login
 if (!isset($_SESSION['user'])) {
     header("Location: index.php");
 }
 
-//if (!is_null($_SESSION['last']['item'])) {
-//    $_SESSION['last']['item'] = null;
-//    $_SESSION['last']['remove'] = null;
-//}
-
+//Generate employee options dialog
 ob_start();
 echo '<div>';
 include '_EmpOptions.php';
 echo '</div>';
 $options = ob_get_clean();
 
-if (!isset($_SESSION['items'])) {
+if (!isset($_SESSION['items']) || empty($_SESSION['items'])) {
+    //Disable access if order does not yet exist
     ?>
     <script>alert("No order!")</script>
     <?php
-    header("Location: index.php");
+    header("Location: home.php");
 }
 
 //Get user info
 $res = mysqli_query($link, "SELECT * FROM Users WHERE UserID=" . $_SESSION['user']);
-
 $userRow = mysqli_fetch_array($res);
 
 ?>
@@ -41,18 +40,17 @@ $userRow = mysqli_fetch_array($res);
     <title><?= PAGE_TITLE ?> - Remove Item</title>
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
-
 </head>
 
 <body>
 <div id="all" class="center">
     <main class="table">
+        <!-- Main table -->
         <div id="tableHolder" class="wrapper">
-    
         </div>
 
+        <!-- Total box -->
         <div class="totals" id="totals">
-            
         </div>
     </main>
 
@@ -60,7 +58,8 @@ $userRow = mysqli_fetch_array($res);
         <div class="center">
             <?= SMALL_IMG ?><br>
         </div>
-
+        
+        <!-- Buttons -->
         <div id="cust-options" class="center options">
             <a href="home.php">
                 <button class="cust-options center" name="cancel" type="button">Go Back</button>
@@ -79,6 +78,7 @@ $userRow = mysqli_fetch_array($res);
 
     <footer>
         <?php
+        //Display employee options
         if (isset($_SESSION['employee'])) {
             echo $options;
         }
@@ -92,15 +92,8 @@ $userRow = mysqli_fetch_array($res);
 <script type="text/javascript">
 
     var $items = $('table.items');
-    var $value;
-
     
-    $(function () {
-        $("#cust-info").accordion({
-            heightStyle: "fill"
-        });
-    });
-    
+    //Function to run on submit of remove button
     $( document ).ready(function () {
         $(document).on('submit', '.removeItem', function (e) {
             e.preventDefault();
@@ -116,26 +109,12 @@ $userRow = mysqli_fetch_array($res);
         });
     });
 
-    $( document ).ready(function () {
-        $('#remove').on('submit', function (e) {
-            e.preventDefault();
-            console.log($(this));
-            $.ajax({
-                type: 'post',
-                url: 'UndoRemove.php',
-                data: $('form').serialize(),
-                success: function () {
-                    refreshTable();
-                }
-            });
-//            alert("Ajax not running")
-        });
-    });
-    
+    //Initial table load
     $(document).ready(function () {
         refreshTable();
     });
 
+    //Reload table and total box
     function refreshTable() {
         $('#tableHolder').load('GetTableFromArray.php?remove', function () {
             var element = document.getElementById("tableHolder");

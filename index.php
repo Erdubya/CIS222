@@ -1,41 +1,48 @@
 <?php
-
 require_once '_configuration.php';
+/*
+ * Starting login page
+ */
 session_start();
 $link = db_connect();
 
 if (isset($_SESSION['user']) != "") {
+    //If user is already logged in, redirect to home page
     header("Location: home.php");
 }
 
+//Generate employee options dialog
 ob_start();
 echo '<div>';
 include '_EmpOptions.php';
 echo '</div>';
 $options = ob_get_clean();
 
+//Perform the following on login submission
 if (isset($_POST['sign-in'])) {
-    $email = mysqli_real_escape_string($link, $_POST['email']);
-    $upass = mysqli_real_escape_string($link, $_POST['pswd']);
+    //Format input email and password to avoid complications
+    $email = trim(mysqli_real_escape_string($link, $_POST['email']));
+    $upass = trim(mysqli_real_escape_string($link, $_POST['pswd']));
 
-    $email = trim($email);
-    $upass = trim($upass);
-
+    //Get necessary user information
     $res = mysqli_query($link, "SELECT UserID, EmailAddr, Password FROM Users WHERE EmailAddr='$email'");
     if ($res) {
+        //If user exists
         $row = mysqli_fetch_array($res);
 
-        $count = mysqli_num_rows($res); // if uname/pass correct it returns must be 1 row
-
+        $count = mysqli_num_rows($res); // if uname/pass correct it must be 1 row
         if ($count == 1 && $row['Password'] == md5($upass)) {
+            //If password correct, set user and redirect to main page
             $_SESSION['user'] = $row['UserID'];
             header("Location: home.php");
         } else {
+            //Otherwise alert to incorrect input
             ?>
             <script>alert('Username / Password Seems Wrong !');</script>
             <?php
         }
     } else {
+        //Otherwise alert to incorrect input
         ?>
         <script>alert('Username / Password Seems Wrong !');</script>
         <?php
@@ -84,6 +91,7 @@ if (isset($_POST['sign-in'])) {
 
     <footer class="center">
         <?php
+        //Display employee options
         if (isset($_SESSION['employee'])) {
             echo $options;
         }

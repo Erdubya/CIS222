@@ -1,6 +1,6 @@
 <?php
 require_once '_configuration.php';
-/**
+/*
  * This script handles account edit requests from employees.
  */
 session_start();
@@ -14,8 +14,9 @@ if (isset($_POST['edit'])) {
 
     //Password must be correct
     if (md5($_POST['oldPass']) == $row['Password']) {
-//                    var_dump($_POST);
+        //Do the following for each POST value
         foreach ($_POST as $key => $value) {
+            //If the data was changed do the following            
             if (!is_null($value) && $value != "") {
                 //Decide if input needs normalizing
                 switch ($key) {
@@ -46,10 +47,9 @@ if (isset($_POST['edit'])) {
                 }
             }
         }
-    } else {
-        echo "NOPE";
     }
 
+    //Finish editing the user
     unset($_SESSION['edit']);
     header("Location: edit-user.php");
 }

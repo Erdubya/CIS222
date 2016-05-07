@@ -1,4 +1,7 @@
 <?php
+/*
+ * Logout script: logs out both current user and employee
+ */
 session_start();
 
 if(!isset($_SESSION['user']))

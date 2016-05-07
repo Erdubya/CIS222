@@ -7,14 +7,12 @@ require_once '_configuration.php';
 session_start();
 $link = db_connect();
 
-if (!$link) {
-    echo 'BOO!!! Not conncted again!!!';
-}
-
+//Get items from table
 $sql = "SELECT * FROM Item";
 $result = mysqli_query($link, $sql);
 
-$rowNum = $alternate = 1;
+//Set row color iteration
+$alternate = 1;
 
 ?>
 <table class="items">
@@ -34,10 +32,11 @@ $rowNum = $alternate = 1;
     </thead>
     <tbody>
     <?php
+    //Build table
     while ($row = mysqli_fetch_array($result)) {
         echo "<tr class='itemRow$alternate tableRow'>";
         //Nested table to hold forms
-        echo "<td colspan='7'><form name='$rowNum' class='editItem' method='POST' action='PostItemToInventory.php'><table class='inner'><tbody><tr>";
+        echo "<td colspan='7'><form class='editItem' method='POST' action='PostItemToInventory.php'><table class='inner'><tbody><tr>";
         
         //Column for options
         echo '<td class=table-ops>';
@@ -67,7 +66,6 @@ $rowNum = $alternate = 1;
         
         //Sets Item number for the empty row
         $nextRow = $row['ItemID'] + 1;
-        $rowNum++;
 
         //Set row color
         $alternate++;

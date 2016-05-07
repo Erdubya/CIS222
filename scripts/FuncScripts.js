@@ -1,7 +1,3 @@
-/**
- * Created by erdub on 3/21/2016.
- */
-
 // Help dialog
 $("#dialog").dialog({
     autoOpen: false,

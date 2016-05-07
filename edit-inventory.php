@@ -1,14 +1,18 @@
 <?php
-ob_start();
 require_once '_configuration.php';
+/*
+ * Employee option to manage the inventory
+ */
 session_start();
 $link = db_connect();
+ob_start();
 
 //Check for login
 if (!isset($_SESSION['employee'])) {
     header("Location: index.php");
 }
 
+//Generate employee options dialog
 ob_start();
 echo '<div>';
 include '_EmpOptions.php';
@@ -21,11 +25,10 @@ $options = ob_get_clean();
 <html lang="en-us">
 <head>
     <meta charset=utf-8"/>
-    <title><?= PAGE_TITLE ?> - Inventory</title>
+    <title><?= PAGE_TITLE ?> - Inventory Manager</title>
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
-
 </head>
 
 <body>
@@ -66,7 +69,7 @@ $options = ob_get_clean();
     var $items = $('table.items');
 
     //Add or update item
-    $( document ).ready(function () {
+    $(document).ready(function () {
         $(document).on('submit', 'form.editItem', function (e) {
             e.preventDefault();
             var that = this;
@@ -103,7 +106,7 @@ $options = ob_get_clean();
             element.scrollTop = element.scrollHeight;
         });
     }
-    
+
     //Barcode generator
     $(document).ready(function () {
         $("#barcode").on("click", function (e) {
@@ -111,9 +114,8 @@ $options = ob_get_clean();
             var params = $("input[name=generate]:checked").map(function () {
                 return this.value;
             });
-            console.log(params);
             e.preventDefault();
-            
+
             if (params.length > 0) {
                 //Create and submit dummy for for redirect
                 var formStr = '<form action="GenerateBarcodes.php" method="post">';
@@ -121,8 +123,8 @@ $options = ob_get_clean();
                     formStr += '<input type="hidden" name="' + i + '" value="' + params[i] + '">';
                 }
                 formStr += '</form>';
+
                 var form = $(formStr);
-                console.log(formStr);
                 $('body').append(form);
                 $(form).submit();
             } else {

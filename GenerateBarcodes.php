@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * This script will make use of the open-source TCPDF library, licensed under GPL and available at http://www.tcpdf.org/
  */
 require_once "tcpdf/tcpdf.php";
@@ -68,6 +68,7 @@ $style = array(
     'stretchtext' => 4
 );
 
+//Write selected barcodes
 foreach ($_POST as $value) {
     $pdf->Cell(0, 0, 'Item# ' . $value, 0, 1, 'C');
     $pdf->write1DBarcode($value .= CalcUPC($value), 'UPCA', '', '', '', 18, 0.4, $style, 'N');
@@ -75,5 +76,6 @@ foreach ($_POST as $value) {
 }
 
 // ---------------------------------------------------------
+
 //Close and output PDF document
 $pdf->Output('ScanIt Barcodes' . date('Y-m-d H:i:s'), 'I');

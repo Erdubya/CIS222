@@ -31,7 +31,7 @@ CREATE TABLE `item` (
   `Name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Description` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Available` tinyint(1) NOT NULL,
-  `Restricted` tinyint(1) NOT NULL DEFAULT '0'COMMENT
+  `Restricted` tinyint(1) NOT NULL DEFAULT '0'COMMENT 'Age restricted'
 ) ;
 
 -- --------------------------------------------------------

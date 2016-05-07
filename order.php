@@ -1,5 +1,8 @@
 <?php
 require_once '_configuration.php';
+/*
+ * Confirm order page - gives users option to review order
+ */
 session_start();
 $link = db_connect();
 
@@ -8,22 +11,20 @@ if (!isset($_SESSION['user'])) {
     header("Location: index.php");
 }
 
+//Generate employee options dialog
 ob_start();
 echo '<div>';
 include '_EmpOptions.php';
 echo '</div>';
 $options = ob_get_clean();
 
-if (!isset($_SESSION['items'])) {
-    ?>
-    <script>alert("No order!")</script>
-    <?php
-    header("Location: index.php");
+if (!isset($_SESSION['items']) || empty($_SESSION['items'])){
+    //If no items are selected, don't let continue to confirmation
+    header("Location: home.php");
 }
 
 //Get user info
 $res = mysqli_query($link, "SELECT * FROM Users WHERE UserID=" . $_SESSION['user']);
-
 $userRow = mysqli_fetch_array($res);
 
 ?>
@@ -35,18 +36,17 @@ $userRow = mysqli_fetch_array($res);
     <title><?= PAGE_TITLE ?> - Confirm</title>
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
-
 </head>
 
 <body>
 <div id="all" class="center">
     <main class="table">
+        <!-- Main table -->
         <div id="tableHolder" class="wrapper">
-
         </div>
 
+        <!-- Total box -->
         <div class="totals" id="totals">
-
         </div>
     </main>
 
@@ -54,6 +54,8 @@ $userRow = mysqli_fetch_array($res);
         <div class="center">
             <?= SMALL_IMG ?>
         </div>
+
+        <!-- Buttons -->
         <div id="cust-options" class="center options">
             <div id="option-stack" class="center">
                 <a href="PostOrder.php">
@@ -67,6 +69,7 @@ $userRow = mysqli_fetch_array($res);
                     </button>
                 </a>
             </div>
+            
             <!-- ui-dialog -->
             <dialog id="dialog" title="Help Is On The Way!">
                 <p class="center">An Employee will be with you shortly.</p>
@@ -76,6 +79,7 @@ $userRow = mysqli_fetch_array($res);
     
     <footer>
         <?php
+        //Display employee options
         if (isset($_SESSION['employee'])) {
             echo $options;
         }
@@ -91,16 +95,12 @@ $userRow = mysqli_fetch_array($res);
 
     var $items = $('table.items');
 
-    $(function () {
-        $("#cust-info").accordion({
-            heightStyle: "fill"
-        });
-    });
-
+    //Initial table refresh
     $(document).ready(function () {
         refreshTable();
     });
 
+    //Reload table and total box
     function refreshTable() {
         $('#tableHolder').load('GetTableFromArray.php', function () {
             var element = document.getElementById("tableHolder");
