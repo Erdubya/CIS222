@@ -2,7 +2,7 @@
 /*
  * This script will make use of the open-source TCPDF library, licensed under GPL and available at http://www.tcpdf.org/
  */
-require_once "tcpdf/tcpdf.php";
+require_once "vendor/tecnickcom/tcpdf/tcpdf.php";
 require_once "_Functions.php";
 
 // create new PDF document

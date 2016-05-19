@@ -1,0 +1,15 @@
+{
+  "name": "erdubya/scan-it",
+  "description": "ScanIt POS system",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Erik Wilson",
+      "email": "erikwilson@outlook.com"
+    }
+  ],
+  "require": {
+      "tecnickcom/tcpdf": "6.2.12"
+  }
+}
